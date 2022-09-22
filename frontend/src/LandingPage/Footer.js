@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from '../logo.svg';
+import Banner from '../components/Banner';
+// import logo from '../logo.svg';
 
 const getDate = () => {
   return new Date().getFullYear();
@@ -48,16 +49,7 @@ const Footer = () => {
     <div className="p-10 md:p-20 pt-5 bg-black text-white">
       <div className="flex flex-col md:flex-row ">
         <div className="left flex flex-col justify-center items-center w-full md:w-2/5 my-10">
-          <div className="logo flex items-center justify-center font-bold text-5xl my-5  leading-tight md:leading-snug">
-            <img
-              className="w-1/6 h-1/6 md:w-2/5 md:h-2/5"
-              src={logo}
-              alt=""
-              srcSet=""
-            />
-            <span>Ghar</span>
-            <span className="text-cyan-400">Shar</span>
-          </div>
+          <Banner />
           <span className="text-gray-400 mt-10">
             A new way to purchase the
             <br />
