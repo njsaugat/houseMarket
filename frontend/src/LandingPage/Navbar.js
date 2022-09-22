@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../logo.svg';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBars,
@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import Banner from '../components/Banner';
 
 const menuIcon = <FontAwesomeIcon icon={faBars} />;
 const crossIcon = <FontAwesomeIcon icon={faXmark} />;
@@ -65,16 +66,7 @@ const Navbar = () => {
   };
   return (
     <nav className="flex  items-center space-x-2 px-10 md:px-20 w-screen gap-10 md:gap-32 lg:gap-1  relative navbar ">
-      <div className="logo w-3/5  flex items-center font-bold text-4xl my-5  leading-tight md:leading-snug md:w-1/2">
-        <img
-          className="w-1/4 h-1/4 md:w-1/6 md:h-1/6"
-          src={logo}
-          alt=""
-          srcSet=""
-        />
-        <span>Ghar</span>
-        <span className="text-cyan-400">Shar</span>
-      </div>
+      <Banner />
       <div
         className="lg:hidden absolute right-10  text-3xl cursor-pointer rounded-lg  p-2 bg-gradient-to-b from-gray-600 to-black-50"
         onClick={() => {
