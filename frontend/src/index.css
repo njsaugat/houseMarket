@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-x: hidden;
+}
+.navbar {
+  transition: 0.5s ease-in;
+}
+#portal div {
+  transition: 0.5s ease-in;
+}
