@@ -16,7 +16,7 @@ const Hero = () => {
         </button>
       </div>
 
-      <div className="md:w-1/2     ">
+      <div className="md:w-1/2">
         <img
           className="rounded-3xl object-cover opacity-95  w-full h-full  "
           src={house}
