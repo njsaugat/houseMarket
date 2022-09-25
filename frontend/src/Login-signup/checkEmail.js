@@ -12,3 +12,17 @@ function createError(element, message) {
   span.classList.add('error');
   element.parentNode.appendChild(span);
 }
+
+export function checkEmail(email) {
+  if (email.value.length <= 0) {
+    callInvalid(email);
+    createError(email, 'Enter a valid email');
+    return false;
+  } else if (!validateEmail(email.value)) {
+    callInvalid(email);
+    createError(email, 'You have entered an invalid email address!');
+  } else {
+    callValid(email);
+    return true;
+  }
+}
