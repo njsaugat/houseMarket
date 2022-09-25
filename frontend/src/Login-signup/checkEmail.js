@@ -26,3 +26,11 @@ export function checkEmail(email) {
     return true;
   }
 }
+
+function validateEmail(mail) {
+  // if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+  if (mail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+    return true;
+  }
+  return false;
+}
