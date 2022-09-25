@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import Banner from '../components/Banner';
 import Tagline from '../components/Tagline';
-import loginHouse from '../loginHouse.png';
+import login from '../login.png';
 import validator, { checkEmail, checkPassword } from './validator';
 const Login = () => {
   const email = useRef(null);
@@ -9,10 +9,10 @@ const Login = () => {
 
   return (
     <div className=" flex flex-col md:flex-row  w-screen h-screen min-h-screen">
-      <div className="hidden w-auto md:flex flex-col items-center  justify-center  bg-gradient-to-r from-sky-300  ">
+      <div className="hidden w-auto md:flex flex-col items-center  justify-center  bg-gradient-to-r from-blue-300  ">
         <Banner />
         <Tagline />
-        <img src={loginHouse} alt="" srcSet="" />
+        <img src={login} alt="" srcSet="" />
       </div>
       <div
         className=" 
@@ -21,9 +21,11 @@ const Login = () => {
         <div className="flex fixed -top-5 md:hidden">
           <Banner />
         </div>
-        <h1 className="text-2xl font-bold mt-20  ">Login to GharShar</h1>
+        <h1 className="text-2xl font-bold mt-20 tracking-wider ">
+          Login to GharShar
+        </h1>
         <form className="p-7 md:p-10  m-2 w-10/12 md:w-full   flex flex-col justify-center items-center">
-          <div className="flex flex-col my-5 self-center w-full lg:w-10/12">
+          <div className="option flex flex-col my-5 self-center w-full lg:w-10/12">
             <label className="font-bold tracking-wider mb-1" htmlFor="email">
               Email
             </label>
@@ -37,7 +39,7 @@ const Login = () => {
               }}
             />
           </div>
-          <div className="flex flex-col my-5 self-center w-full lg:w-10/12">
+          <div className="option flex flex-col my-5 self-center w-full lg:w-10/12">
             <label className="font-bold tracking-wider mb-1" htmlFor="password">
               Password
             </label>
@@ -53,16 +55,16 @@ const Login = () => {
           </div>
 
           <button
-            className="py-3 px-5 outline-0 w-full lg:w-10/12  bg-gradient-to-t from-cyan-500 to-cyan-100  rounded-lg text-black"
+            className="py-3 my-5 px-5 outline-0 w-full lg:w-10/12  bg-gradient-to-t from-cyan-500 to-cyan-100  rounded-lg text-black"
             type="submit"
             onClick={(e) => {
               // e.preventDefault();
               validator(e, email.current, password.current);
             }}
           >
-            Sign Up
+            Sign In
           </button>
-          <p className="mt-4">Already a member? Sign In</p>
+          <p className="mt-4">Not a member? Sign Up</p>
         </form>
       </div>
     </div>
