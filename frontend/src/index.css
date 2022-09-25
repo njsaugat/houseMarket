@@ -30,7 +30,7 @@ body {
   background-color: white;
 } */
 
-input {
+.option input {
   width: 100%;
   margin-top: 10px;
   font: inherit;
@@ -47,8 +47,8 @@ input.invalid {
 input.valid {
   border: 2px solid rgba(172, 255, 47, 0.92);
 }
-input:hover,
-input:focus {
+.option input:hover,
+.option input:focus {
   outline: none;
   box-shadow: 0px 2px 5px rebeccapurple;
   border: 1px solid rebeccapurple;
