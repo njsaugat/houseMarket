@@ -32,7 +32,7 @@ const Signup = () => {
         <h1 className="text-2xl font-bold mt-20  ">Sign Up to GharShar</h1>
         <form className="p-7 md:p-10  m-2 w-10/12 md:w-full   flex flex-col justify-center items-center">
           <div className="flex gap-x-5 justify-between w-full lg:w-10/12">
-            <div className="flex flex-col my-5 self-center  w-1/2 ">
+            <div className="option flex flex-col my-5 self-center  w-1/2 ">
               <label className="font-bold tracking-wider mb-1" htmlFor="name">
                 Name
               </label>
@@ -42,7 +42,7 @@ const Signup = () => {
                 name="name"
               />
             </div>
-            <div className="flex flex-col my-5 self-center  w-1/2 ">
+            <div className=" option flex flex-col my-5 self-center  w-1/2 ">
               <label
                 className="font-bold tracking-wider mb-1"
                 htmlFor="username"
@@ -60,7 +60,7 @@ const Signup = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col my-5 self-center w-full lg:w-10/12">
+          <div className="option flex flex-col my-5 self-center w-full lg:w-10/12">
             <label className="font-bold tracking-wider mb-1" htmlFor="email">
               Email
             </label>
@@ -74,7 +74,7 @@ const Signup = () => {
               }}
             />
           </div>
-          <div className="flex flex-col my-5 self-center w-full lg:w-10/12">
+          <div className="option  flex flex-col my-5 self-center w-full lg:w-10/12">
             <label className="font-bold tracking-wider mb-1" htmlFor="password">
               Password
             </label>
@@ -88,7 +88,7 @@ const Signup = () => {
               }}
             />
           </div>
-          <div className="flex flex-col my-5 self-center w-full lg:w-10/12">
+          <div className="option flex flex-col my-5 self-center w-full lg:w-10/12">
             <label
               className="font-bold tracking-wider mb-1"
               htmlFor="confirmPassword"
@@ -105,7 +105,7 @@ const Signup = () => {
               }}
             />
           </div>
-          <div className="flex align-items my-3 self outline-0-center w-full lg:w-10/12 ">
+          <div className=" flex align-items my-3 self outline-0-center w-full lg:w-10/12 ">
             <label htmlFor="tac">
               <input
                 id="tac"
