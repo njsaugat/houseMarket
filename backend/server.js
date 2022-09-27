@@ -7,6 +7,8 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
+
+app.use;
 app.get('/api', (req, res) => {
   // res.send('Hello ');
   res.json([
