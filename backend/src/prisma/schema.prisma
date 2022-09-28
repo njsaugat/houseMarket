@@ -10,23 +10,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 model Property {
-  id           String  @id @default(uuid())
-  name         String
-  location     String
-  description  String
-  furnished    Boolean
-  price        Float
+  id        String      @id @default(uuid())
+  name String 
+  location String
+  description String
+  furnished Boolean
+  price Float
   propertyType String
-  livingRoom   Int
-  bathRoom     Int
-  bedRoom      Int
+  livingRoom Int
+  bathRoom Int
+  bedRoom Int
 }
 
 model Owner {
-  id       String  @id @default(uuid())
-  name     String?
+  id      String      @id @default(uuid())
+  name    String?
   username String
-  email    String  @unique
+  email   String   @unique
   password String
+  // property Property
 }
+
+model Image{
+  id String      @id @default(uuid())
+  imageUrl String
+}
+
