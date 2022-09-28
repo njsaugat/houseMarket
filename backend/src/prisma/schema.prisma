@@ -17,6 +17,9 @@ model Property {
   location String
   description String
   furnished Boolean
+  price Float
+  propertyType String
+  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
