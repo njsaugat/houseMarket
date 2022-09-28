@@ -19,7 +19,9 @@ model Property {
   furnished Boolean
   price Float
   propertyType String
-  
+  livingRoom Int
+  bathRoom Int
+  bedRoom Int
 }
 
 model Owner {
