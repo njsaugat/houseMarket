@@ -22,6 +22,10 @@ model Property {
   livingRoom Int
   bathRoom Int
   bedRoom Int
+  owner   Owner @relation(fields: [ownerId], references: [id])
+  ownerId String
+
+  images Image[]
 }
 
 model Owner {
@@ -30,11 +34,14 @@ model Owner {
   username String
   email   String   @unique
   password String
-  // property Property
+  properties Property[]
 }
 
 model Image{
   id String      @id @default(uuid())
   imageUrl String
+
+  property   Property @relation(fields: [imageId], references: [id])
+  imageId String
 }
 
