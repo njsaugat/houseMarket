@@ -27,6 +27,6 @@ model Owner {
   name    String?
   email   String   @unique
   posts   Post[]
-  profile Profile?
+  profile Profile
 }
 
