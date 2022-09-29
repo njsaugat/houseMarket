@@ -1,28 +1,39 @@
 import React from 'react';
-//
-const progressSteps = Array.from(Array(10).keys());
-const ProgressSteps = () => {
+import { progressSteps } from './progressStepsArr';
+const circleProperty = `w-10 h-10 border-2 rounded-full flex justify-center items-center transition-all  duration-500`;
+const activeCirlce = `${circleProperty}  w-11 h-11 border-sky-400 border-4 rounded-full transition-all duration-500 `;
+const currentCircle = `${circleProperty} border-0 border-slate-100 bg-gradient-to-r from-sky-400 to-cyan-100`;
+
+const lineProperty = `line w-14 lg:w-20 h-1.5 bg-slate-300 transition-all duration-500 `;
+const activeLine = `${lineProperty}  bg-gradient-to-r from-sky-500 to-cyan-400`;
+
+const ProgressSteps = ({ step, setStep }) => {
+  //   const steps = useRef(null);
   return (
     <>
-      <div className="container flex items-center justify-center">
+      <div className="flex items-center justify-center w-screen ">
         {progressSteps.map((progressStep, index) => {
           return (
-            <div className="" key={index}>
-              <div className="circle w-2 h-2 border-2 rounded-full flex justify-center items-center"></div>
+            <div className="flex items-center justify-center " key={index}>
+              <div
+                className={
+                  step >= index
+                    ? step === index
+                      ? currentCircle
+                      : activeCirlce
+                    : circleProperty
+                }
+              >
+                {progressStep + 1}
+              </div>
               {index < progressSteps.length - 1 && (
-                <div className="line w-4 h-1 bg-slate-300"></div>
+                <div
+                  className={step - 1 >= index ? activeLine : lineProperty}
+                ></div>
               )}
             </div>
           );
         })}
-      </div>
-      <div className="buttons flex ">
-        <div className="prev">
-          <button>Prev</button>
-        </div>
-        <div className="next active-button">
-          <button>Next</button>
-        </div>
       </div>
     </>
   );
