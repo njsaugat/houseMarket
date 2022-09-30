@@ -63,7 +63,7 @@ const RegisterProperty = () => {
           </div>
           <div className="option flex flex-col my-5 self-center  w-1/2 ">
             <label className="font-bold tracking-wider mb-1" htmlFor="name">
-              Description
+              Descriptions
             </label>
             <input
               className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 "
