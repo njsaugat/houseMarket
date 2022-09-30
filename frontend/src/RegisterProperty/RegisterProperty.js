@@ -73,7 +73,7 @@ const RegisterProperty = () => {
           </div>
         </form>
       </div>
-      <PrevNext step={steps} setStep={setStep} />
+      <PrevNext step={step} setStep={setStep} />
     </div>
   );
 };
