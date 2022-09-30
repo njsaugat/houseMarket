@@ -8,7 +8,7 @@ const PrevNext = ({ step, setStep }) => {
       <div className="prev">
         <button
           className={
-            step === 1
+            step === 
               ? buttonProperty +
                 ` bg-gradient-to-t from-slate-400 to-slate-100 shadow-sm`
               : buttonProperty
