@@ -33,10 +33,9 @@ const Signup = () => {
         <form className="p-7 md:p-10  m-2 w-10/12 md:w-full   flex flex-col justify-center items-center">
           <div className="flex gap-x-5 justify-between w-full lg:w-10/12">
             <div className="option flex flex-col my-5 self-center  w-1/2 ">
-              <label
-                className="font-bold tracking-wider mb-1"
-                htmlFor="name"
-              ></label>
+              <label className="font-bold tracking-wider mb-1" htmlFor="name">
+                Name
+              </label>
               <input
                 className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 "
                 type="text"
