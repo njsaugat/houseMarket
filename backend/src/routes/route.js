@@ -15,3 +15,6 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   res.send('POST request to the homepage');
 });
+app.get('/', (req, res) => {
+  res.send('root');
+});
