@@ -22,3 +22,6 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
   res.send('about');
 });
+app.get('/random.text', (req, res) => {
+  res.send('random.text');
+});
