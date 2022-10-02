@@ -35,3 +35,7 @@ app.get('/ab+cd', (req, res) => {
 app.get('/ab(cd)?e', (req, res) => {
   res.send('ab(cd)?e');
 });
+
+app.get(/.*fly$/, (req, res) => {
+  res.send('/.*fly$/');
+});
