@@ -28,3 +28,6 @@ app.get('/random.text', (req, res) => {
 app.get('/ab?cd', (req, res) => {
   res.send('ab?cd');
 });
+app.get('/ab+cd', (req, res) => {
+  res.send('ab+cd');
+});
