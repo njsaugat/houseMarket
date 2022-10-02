@@ -25,3 +25,6 @@ app.get('/about', (req, res) => {
 app.get('/random.text', (req, res) => {
   res.send('random.text');
 });
+app.get('/ab?cd', (req, res) => {
+  res.send('ab?cd');
+});
