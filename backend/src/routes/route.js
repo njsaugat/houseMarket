@@ -18,3 +18,7 @@ app.post('/', (req, res) => {
 app.get('/', (req, res) => {
   res.send('root');
 });
+
+app.get('/about', (req, res) => {
+  res.send('about');
+});
