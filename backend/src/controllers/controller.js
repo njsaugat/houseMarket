@@ -16,4 +16,5 @@ const wiki = require('./wiki.js');
 app.use('/wiki', wiki);
 
 router.get('/about', function (req, res) {
- 
+  res.send('About this wiki');
+});
