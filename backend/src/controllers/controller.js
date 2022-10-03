@@ -10,3 +10,7 @@ router.get('/about', function (req, res) {
 });
 
 module.exports = router;
+
+const wiki = require('./wiki.js');
+// …
+app.use('/wiki', wiki);
