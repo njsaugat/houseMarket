@@ -25,3 +25,9 @@ router.get('/about', function (req, res) {
 router.post('/about', (req, res) => {
   res.send('About this wiki');
 });
+const Author = require('../models/author');
+
+// Display list of all Authors.
+exports.author_list = (req, res) => {
+  res.send('NOT IMPLEMENTED: Author list');
+};
