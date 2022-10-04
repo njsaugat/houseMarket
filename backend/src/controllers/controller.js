@@ -39,3 +39,8 @@ exports.author_detail = (req, res) => {
 exports.author_create_get = (req, res) => {
   res.send('NOT IMPLEMENTED: Author create GET');
 };
+
+// Handle Author create on POST.
+exports.author_create_post = (req, res) => {
+  res.send('NOT IMPLEMENTED: Author create POST');
+};
