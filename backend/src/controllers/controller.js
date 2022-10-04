@@ -54,3 +54,8 @@ exports.author_delete_get = (req, res) => {
 exports.author_delete_post = (req, res) => {
   res.send('NOT IMPLEMENTED: Author delete POST');
 };
+
+// Display Author update form on GET.
+exports.author_update_get = (req, res) => {
+  res.send('NOT IMPLEMENTED: Author update GET');
+};
