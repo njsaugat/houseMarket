@@ -21,3 +21,7 @@ router.get('/about', function (req, res) {
 router.get('/about', function (req, res) {
   res.send('About this wiki');
 });
+
+router.post('/about', (req, res) => {
+  res.send('About this wiki');
+});
