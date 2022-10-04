@@ -44,3 +44,8 @@ exports.author_create_get = (req, res) => {
 exports.author_create_post = (req, res) => {
   res.send('NOT IMPLEMENTED: Author create POST');
 };
+
+// Display Author delete form on GET.
+exports.author_delete_get = (req, res) => {
+  res.send('NOT IMPLEMENTED: Author delete GET');
+};
