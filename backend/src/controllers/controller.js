@@ -106,3 +106,5 @@ exports.bookinstance_update_get = (req, res) => {
 exports.bookinstance_update_post = (req, res) => {
   res.send('NOT IMPLEMENTED: BookInstance update POST');
 };
+
+const Genre = require('../models/genre');
