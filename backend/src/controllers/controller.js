@@ -101,3 +101,8 @@ exports.bookinstance_delete_post = (req, res) => {
 exports.bookinstance_update_get = (req, res) => {
   res.send('NOT IMPLEMENTED: BookInstance update GET');
 };
+
+// Handle bookinstance update on POST.
+exports.bookinstance_update_post = (req, res) => {
+  res.send('NOT IMPLEMENTED: BookInstance update POST');
+};
