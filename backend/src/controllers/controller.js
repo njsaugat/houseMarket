@@ -108,3 +108,6 @@ exports.bookinstance_update_post = (req, res) => {
 };
 
 const Genre = require('../models/genre');
+exports.genre_list = (req, res) => {
+  res.send('NOT IMPLEMENTED: Genre list');
+};
