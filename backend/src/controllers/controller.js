@@ -71,3 +71,8 @@ const BookInstance = require('../models/bookinstance');
 exports.bookinstance_list = (req, res) => {
   res.send('NOT IMPLEMENTED: BookInstance list');
 };
+
+// Display detail page for a specific BookInstance.
+exports.bookinstance_detail = (req, res) => {
+  res.send(`NOT IMPLEMENTED: BookInstance detail: ${req.params.id}`);
+};
