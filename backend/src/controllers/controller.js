@@ -111,3 +111,7 @@ const Genre = require('../models/genre');
 exports.genre_list = (req, res) => {
   res.send('NOT IMPLEMENTED: Genre list');
 };
+// Display detail page for a specific Genre.
+exports.genre_detail = (req, res) => {
+  res.send(`NOT IMPLEMENTED: Genre detail: ${req.params.id}`);
+};
