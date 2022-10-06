@@ -115,3 +115,8 @@ exports.genre_list = (req, res) => {
 exports.genre_detail = (req, res) => {
   res.send(`NOT IMPLEMENTED: Genre detail: ${req.params.id}`);
 };
+
+// Display Genre create form on GET.
+exports.genre_create_get = (req, res) => {
+  res.send('NOT IMPLEMENTED: Genre create GET');
+};
