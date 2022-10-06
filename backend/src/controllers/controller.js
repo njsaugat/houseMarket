@@ -145,3 +145,5 @@ exports.genre_update_get = (req, res) => {
 exports.genre_update_post = (req, res) => {
   res.send('NOT IMPLEMENTED: Genre update POST');
 };
+
+const Book = require('../models/book');
