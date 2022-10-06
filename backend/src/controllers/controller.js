@@ -120,3 +120,8 @@ exports.genre_detail = (req, res) => {
 exports.genre_create_get = (req, res) => {
   res.send('NOT IMPLEMENTED: Genre create GET');
 };
+
+// Handle Genre create on POST.
+exports.genre_create_post = (req, res) => {
+  res.send('NOT IMPLEMENTED: Genre create POST');
+};
