@@ -130,3 +130,8 @@ exports.genre_create_post = (req, res) => {
 exports.genre_delete_get = (req, res) => {
   res.send('NOT IMPLEMENTED: Genre delete GET');
 };
+
+// Handle Genre delete on POST.
+exports.genre_delete_post = (req, res) => {
+  res.send('NOT IMPLEMENTED: Genre delete POST');
+};
