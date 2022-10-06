@@ -150,3 +150,7 @@ const Book = require('../models/book');
 exports.index = (req, res) => {
   res.send('NOT IMPLEMENTED: Site Home Page');
 };
+// Display list of all books.
+exports.book_list = (req, res) => {
+  res.send('NOT IMPLEMENTED: Book list');
+};
