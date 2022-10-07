@@ -186,4 +186,3 @@ exports.book_update_post = (req, res) => {
 };
 
 const express = require('express');
-const router = express.Router();
