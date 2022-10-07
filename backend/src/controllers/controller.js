@@ -186,3 +186,6 @@ exports.book_update_post = (req, res) => {
 };
 
 const express = require('express');
+
+const book_controller = require('../controllers/bookController');
+const author_controller = require('../controllers/authorController');
