@@ -184,3 +184,6 @@ exports.book_update_get = (req, res) => {
 exports.book_update_post = (req, res) => {
   res.send('NOT IMPLEMENTED: Book update POST');
 };
+
+const express = require('express');
+const router = express.Router();
