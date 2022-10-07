@@ -180,3 +180,7 @@ exports.book_delete_post = (req, res) => {
 exports.book_update_get = (req, res) => {
   res.send('NOT IMPLEMENTED: Book update GET');
 };
+// Handle book update on POST.
+exports.book_update_post = (req, res) => {
+  res.send('NOT IMPLEMENTED: Book update POST');
+};
