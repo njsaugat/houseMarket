@@ -163,3 +163,7 @@ exports.book_detail = (req, res) => {
 exports.book_create_get = (req, res) => {
   res.send('NOT IMPLEMENTED: Book create GET');
 };
+// Handle book create on POST.
+exports.book_create_post = (req, res) => {
+  res.send('NOT IMPLEMENTED: Book create POST');
+};
