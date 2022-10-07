@@ -167,3 +167,7 @@ exports.book_create_get = (req, res) => {
 exports.book_create_post = (req, res) => {
   res.send('NOT IMPLEMENTED: Book create POST');
 };
+// Display book delete form on GET.
+exports.book_delete_get = (req, res) => {
+  res.send('NOT IMPLEMENTED: Book delete GET');
+};
