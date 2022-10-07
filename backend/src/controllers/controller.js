@@ -175,3 +175,8 @@ exports.book_delete_get = (req, res) => {
 exports.book_delete_post = (req, res) => {
   res.send('NOT IMPLEMENTED: Book delete POST');
 };
+
+// Display book update form on GET.
+exports.book_update_get = (req, res) => {
+  res.send('NOT IMPLEMENTED: Book update GET');
+};
