@@ -1,1 +1,1 @@
-export const progressSteps = Array.from(Array(4).keys());
+export const progressSteps = Array.from(Array(3).keys());
