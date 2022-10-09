@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import Final from './Final';
+import Intro from './Intro';
+import Mid from './Mid';
 import PrevNext from './PrevNext';
 import ProgressSteps from './ProgressSteps';
 
@@ -9,70 +12,13 @@ const RegisterProperty = () => {
       <div className="left my-10">
         <ProgressSteps step={step} setStep={setStep} />
       </div>
-      <div className="right">
-        <form action="">
-          <div className="option flex flex-col my-5 self-center  w-1/2 ">
-            <label className="font-bold tracking-wider mb-1" htmlFor="name">
-              Name
-            </label>
-            <input
-              className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 "
-              type="text"
-              name="name"
-            />
-          </div>
-          <div className="option flex flex-col my-5 self-center  w-1/2 ">
-            <label className="font-bold tracking-wider mb-1" htmlFor="name">
-              Bedrooms
-            </label>
-            <input
-              className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 "
-              type="number"
-              name="name"
-            />
-          </div>
-          <div className="option flex flex-col my-5 self-center  w-1/2 ">
-            <label className="font-bold tracking-wider mb-1" htmlFor="name">
-              Living Rooms
-            </label>
-            <input
-              className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 "
-              type="number"
-              name="name"
-            />
-          </div>
-          <div className="option flex flex-col my-5 self-center  w-1/2 ">
-            <label className="font-bold tracking-wider mb-1" htmlFor="name">
-              Bathrooms
-            </label>
-            <input
-              className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 "
-              type="number"
-              name="name"
-            />
-          </div>
-          <div className="option flex flex-col my-5 self-center  w-1/2 ">
-            <label className="font-bold tracking-wider mb-1" htmlFor="name">
-              Address
-            </label>
-            <input
-              className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 "
-              type="text"
-              name="name"
-            />
-          </div>
-          <div className="option flex flex-col my-5 self-center  w-1/2 ">
-            <label className="font-bold tracking-wider mb-1" htmlFor="name">
-              Description
-            </label>
-            <input
-              className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 "
-              type="text"
-              name="name"
-            />
-          </div>
-        </form>
-      </div>
+      <form action="" className="flex justify-center">
+        <div className="right flex flex-col items-center justify-center shadow-lg rounded-lg border-slate-0 border-2 w-11/12 md:w-4/5 lg:w-1/2">
+          <Intro />
+          {/* <Mid /> */}
+          {/* <Final /> */}
+        </div>
+      </form>
       <PrevNext step={step} setStep={setStep} />
     </div>
   );
