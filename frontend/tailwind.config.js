@@ -7,6 +7,9 @@ module.exports = {
         'blue-green': '#89D4CF',
         'majorelle-blue': '#734AE8',
       },
+      fontFamily: {
+        poppins: ['"Poppins"'],
+      },
     },
   },
   plugins: [],
