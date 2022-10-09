@@ -18,11 +18,6 @@ const Intro = () => {
         />
       </div>
 
-      <div className=" flex flex-col my-5 self-center  w-1/2 ">
-        <label Htfor="myfile">Select a file:</label>
-        <input type="file" id="myfile" name="myfile"></input>
-      </div>
-
       <div className=" flex my-5 self-center  w-1/2 bg-cyan-100 rounded-3xl p-1">
         <button
           className={
@@ -51,6 +46,10 @@ const Intro = () => {
         >
           Sale
         </button>
+      </div>
+      <div className=" flex flex-col my-5 self-center  w-1/2 ">
+        <label Htfor="myfile">Select a file:</label>
+        <input type="file" id="myfile" name="myfile"></input>
       </div>
     </>
   );
