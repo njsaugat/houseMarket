@@ -22,19 +22,7 @@ const Intro = () => {
         <label Htfor="myfile">Select a file:</label>
         <input type="file" id="myfile" name="myfile"></input>
       </div>
-      <div className=" flex flex-col my-5 self-center  w-1/2 ">
-        <label for="cars">Choose a car:</label>
 
-        <select
-          name="cars"
-          id="cars"
-          multiple
-          className="border-0 outline-none overflow-hidden flex"
-        >
-          <option value="Rent">Rent</option>
-          <option value="Sale">Sale</option>
-        </select>
-      </div>
       <div className=" flex my-5 self-center  w-1/2 bg-cyan-100 rounded-3xl p-1">
         <button
           className={
