@@ -7,14 +7,14 @@ import RegisterProperty from './RegisterProperty/RegisterProperty';
 
 function App() {
   return (
-    <>
+    <div className="font-poppins">
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register-property" element={<RegisterProperty />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
