@@ -4,7 +4,7 @@ const buttonProperty = 'px-3 py-1  w-1/2 transition-all ease-out';
 const selectedProperty = `${buttonProperty} bg-gradient-to-t from-sky-400 to-cyan-100 font-bold tracking-wider `;
 
 const Mid = () => {
-  const [rentClicked, setRent] = useState(false);
+  const [isFurnished, setRent] = useState(false);
   return (
     <>
       <div className="option flex flex-col my-5 self-center  w-1/2 ">
@@ -44,7 +44,7 @@ const Mid = () => {
         <div className=" flex my-5 self-center  w-full lg:w-10/12 bg-cyan-100 rounded-3xl p-1  ">
           <button
             className={
-              rentClicked
+              isFurnished
                 ? selectedProperty + ' rounded-tl-2xl rounded-bl-2xl'
                 : buttonProperty
             }
@@ -58,7 +58,7 @@ const Mid = () => {
           </button>
           <button
             className={
-              rentClicked
+              isFurnished
                 ? buttonProperty
                 : selectedProperty + ' rounded-tr-2xl rounded-br-2xl'
             }
