@@ -37,34 +37,39 @@ const Mid = () => {
           name="name"
         />
       </div>
-      <div className=" flex my-5 self-center  w-full lg:w-10/12 bg-cyan-100 rounded-3xl p-1  ">
-        <button
-          className={
-            rentClicked
-              ? selectedProperty + ' rounded-tl-2xl rounded-bl-2xl'
-              : buttonProperty
-          }
-          onClick={(e) => {
-            e.preventDefault();
+      <div className="flex flex-col my-5 self-center  w-1/2 ">
+        <p className="font-bold tracking-wider mb-1 self-start " htmlFor="name">
+          Select property type
+        </p>
+        <div className=" flex my-5 self-center  w-full lg:w-10/12 bg-cyan-100 rounded-3xl p-1  ">
+          <button
+            className={
+              rentClicked
+                ? selectedProperty + ' rounded-tl-2xl rounded-bl-2xl'
+                : buttonProperty
+            }
+            onClick={(e) => {
+              e.preventDefault();
 
-            setRent(true);
-          }}
-        >
-          Rent
-        </button>
-        <button
-          className={
-            rentClicked
-              ? buttonProperty
-              : selectedProperty + ' rounded-tr-2xl rounded-br-2xl'
-          }
-          onClick={(e) => {
-            e.preventDefault();
-            setRent(false);
-          }}
-        >
-          Sale
-        </button>
+              setRent(true);
+            }}
+          >
+            Rent
+          </button>
+          <button
+            className={
+              rentClicked
+                ? buttonProperty
+                : selectedProperty + ' rounded-tr-2xl rounded-br-2xl'
+            }
+            onClick={(e) => {
+              e.preventDefault();
+              setRent(false);
+            }}
+          >
+            Sale
+          </button>
+        </div>
       </div>
     </>
   );
