@@ -14,7 +14,7 @@ import { createPortal } from 'react-dom';
 import Banner from '../components/Banner';
 
 const menuIcon = <FontAwesomeIcon icon={faBars} />;
-const crossIco = <FontAwesomeIcon icon={faXmark} />;
+const crossIcon = <FontAwesomeIcon icon={faXmark} />;
 
 const homeIcon = <FontAwesomeIcon icon={faHouse} />;
 const aboutUsIcon = <FontAwesomeIcon icon={faUser} />;
