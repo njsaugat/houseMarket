@@ -9,7 +9,7 @@ const Mid = () => {
     <>
       <div className="option option2  flex items-center  my-5   w-3/5 ">
         <label className="font-bold tracking-wider w-56 " htmlFor="bedrooms">
-          Bedroom
+          Bedrooms
         </label>
         <input
           className=" border-gray-300 border-0 shadow-md ml-2 bg-gray-100 w-full lg:w-2/5 rounded-lg  px-3  outline-0 "
