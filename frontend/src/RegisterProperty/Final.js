@@ -32,7 +32,7 @@ const Final = () => {
           Description
         </label>
         <textarea
-          className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 resize-none h-28 "
+          className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 resize-none h-2 "
           type="text"
           name="name"
           id="description"
