@@ -18,7 +18,7 @@ const crossIcon = <FontAwesomeIcon icon={faXmark} />;
 
 const homeIcon = <FontAwesomeIcon icon={faHouse} />;
 const aboutUsIcon = <FontAwesomeIcon icon={faUser} />;
-const featuresIco = <FontAwesomeIcon icon={faListCheck} />;
+const featuresIcon = <FontAwesomeIcon icon={faListCheck} />;
 const solutionIcon = <FontAwesomeIcon icon={faCoins} />;
 
 const menuIcons = [homeIcon, aboutUsIcon, featuresIcon, solutionIcon];
