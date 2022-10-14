@@ -81,5 +81,5 @@ const Mid = () => {
     </>
   );
 };
-//this could be done to update
+//this could be done to
 export default Mid;
