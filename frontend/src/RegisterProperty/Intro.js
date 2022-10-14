@@ -21,7 +21,7 @@ const Intro = () => {
           type="text"
           id="name"
           name="name"
-          require
+          required
           placeholder="Enter the property's name"
         />
       </div>
