@@ -81,5 +81,5 @@ const Mid = () => {
     </>
   );
 };
-//this could
+//this
 export default Mid;
