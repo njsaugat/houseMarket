@@ -99,5 +99,5 @@ const Intro = () => {
   );
 };
 
-// this is the way to go
+// this is the way to
 export default Intro;
