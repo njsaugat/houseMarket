@@ -99,5 +99,5 @@ const Intro = () => {
   );
 };
 
-// this is the way
+// this is the wa
 export default Intro;
