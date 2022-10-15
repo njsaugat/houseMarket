@@ -99,5 +99,5 @@ const Intro = () => {
   );
 };
 
-// this is the wat
+// this is the
 export default Intro;
