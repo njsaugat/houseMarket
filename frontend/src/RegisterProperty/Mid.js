@@ -81,5 +81,5 @@ const Mid = () => {
     </>
   );
 };
-// mid file
+// mid
 export default Mid;
