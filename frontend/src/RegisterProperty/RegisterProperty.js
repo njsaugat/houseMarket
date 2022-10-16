@@ -14,7 +14,7 @@ const RegisterProperty = () => {
 
   return (
     <div className=" bg-gradient-to-r from-gray-200 to-gray-50 h-screen">
-      {/* @TODO: add Navbar here okay */}
+      {/* @TODO: add Navbar here  */}
       <h1 className="text-2xl font-bold text-center tracking-wider py-5 ">
         Register your property at GharShar
       </h1>
