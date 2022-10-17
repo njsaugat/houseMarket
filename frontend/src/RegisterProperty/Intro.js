@@ -99,5 +99,5 @@ const Intro = () => {
   );
 };
 
-// intro file
+// intro
 export default Intro;
