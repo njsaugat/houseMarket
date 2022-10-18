@@ -9,10 +9,12 @@ const selectedProperty = `${buttonProperty} bg-gradient-to-t from-sky-400 to-cya
 const plusIcon = <FontAwesomeIcon icon={faPlus} />;
 
 const Intro = () => {
-  const [rentClicked, setRent] = useState(false);
   const previewImage = useRef(null);
 
   // const { step, setStep } = useContext(FormContext);
+  const { formState, setState } = useContext(FormContext);
+  const { rentClicked, setRent } = useContext(FormContext);
+
   return (
     <form className="w-full flex flex-col items-center">
       <div className="option flex flex-col my-5 self-center  w-1/2 ">
@@ -26,6 +28,12 @@ const Intro = () => {
           name="name"
           required
           placeholder="Enter the property's name"
+          value={formState.name}
+          onChange={(e) => {
+            setState((prevState) => {
+              return { ...prevState, name: e.target.value };
+            });
+          }}
         />
       </div>
       <div className="flex flex-col my-5 self-center  w-1/2 ">
