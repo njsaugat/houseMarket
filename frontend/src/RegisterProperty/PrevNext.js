@@ -4,7 +4,7 @@ const buttonProperty = `py-2 px-5 my-10 rounded-lg bg-gradient-to-t from-sky-400
 
 const PrevNext = ({ step, setStep }) => {
   return (
-    <form className="buttons flex justify-center items-center gap-5 ">
+    <div className="buttons flex justify-center items-center gap-5 ">
       <div className="prev">
         <button
           className={
@@ -44,7 +44,7 @@ const PrevNext = ({ step, setStep }) => {
           {step === progressSteps.length - 1 ? 'Submit' : 'Next'}
         </button>
       </div>
-    </form>
+    </div>
   );
 };
 
