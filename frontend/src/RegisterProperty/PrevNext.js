@@ -14,6 +14,7 @@ const PrevNext = ({ step, setStep }) => {
               : buttonProperty
           }
           disabled={step === 0 ? true : false}
+          type="submit"
           onClick={() => {
             setStep((prevStep) => (prevStep === 0 ? 0 : prevStep - 1));
           }}
@@ -31,6 +32,7 @@ const PrevNext = ({ step, setStep }) => {
             //     :
             buttonProperty
           }
+          type="sumbit"
           onClick={() => {
             setStep((prevStep) =>
               prevStep === progressSteps.length - 1
