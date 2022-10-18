@@ -1,6 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FormContext } from './RegisterProperty';
+import PrevNext from './PrevNext';
 const buttonProperty = 'px-3 py-1  w-1/2 transition-all ease-out';
 const selectedProperty = `${buttonProperty} bg-gradient-to-t from-sky-400 to-cyan-100 font-bold tracking-wider `;
 
@@ -10,8 +12,9 @@ const Intro = () => {
   const [rentClicked, setRent] = useState(false);
   const previewImage = useRef(null);
 
+  const { step, setStep } = useContext(FormContext);
   return (
-    <>
+    <form className="w-full flex flex-col items-center">
       <div className="option flex flex-col my-5 self-center  w-1/2 ">
         <label className="font-bold tracking-wider mb-1" htmlFor="name">
           Name
@@ -95,7 +98,9 @@ const Intro = () => {
           }}
         ></input>
       </div>
-    </>
+      {/* <button type="submit">submit</button> */}
+      <PrevNext step={step} setStep={setStep} />
+    </form>
   );
 };
 
