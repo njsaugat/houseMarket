@@ -12,7 +12,7 @@ const Intro = () => {
   const [rentClicked, setRent] = useState(false);
   const previewImage = useRef(null);
 
-  const { step, setStep } = useContext(FormContext);
+  // const { step, setStep } = useContext(FormContext);
   return (
     <form className="w-full flex flex-col items-center">
       <div className="option flex flex-col my-5 self-center  w-1/2 ">
@@ -99,7 +99,7 @@ const Intro = () => {
         ></input>
       </div>
       {/* <button type="submit">submit</button> */}
-      <PrevNext step={step} setStep={setStep} />
+      {/* <PrevNext step={step} setStep={setStep} /> */}
     </form>
   );
 };
