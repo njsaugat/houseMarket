@@ -11,6 +11,7 @@ const formItems = [<Intro />, <Mid />, <Final />];
 const RegisterProperty = () => {
   const [step, setStep] = useState(0);
 
+  const [rentClicked, setRent] = useState(false);
   // const [name,setName]=useState('')
   const [formState, setState] = useState({
     name: '',
@@ -26,7 +27,9 @@ const RegisterProperty = () => {
   });
 
   return (
-    <FormContext.Provider value={{ step, setStep }}>
+    <FormContext.Provider
+      value={{ step, setStep, formState, setState, rentClicked, setRent }}
+    >
       <div className=" bg-gradient-to-r from-gray-200 to-gray-50 h-screen">
         {/* @TODO: add Navbar here  */}
         <h1 className="text-2xl font-bold text-center tracking-wider py-5 ">
