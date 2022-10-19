@@ -1,10 +1,11 @@
-import React, { createContext, useState } from 'react';
-import Banner from '../components/Banner';
+import React, { createContext, useRef, useState } from 'react';
+// import Banner from '../components/Banner';
 import Final from './Final';
 import Intro from './Intro';
 import Mid from './Mid';
 import PrevNext from './PrevNext';
 import ProgressSteps from './ProgressSteps';
+import Axios from 'axios';
 
 export const FormContext = createContext();
 const formItems = [<Intro />, <Mid />, <Final />];
@@ -12,23 +13,44 @@ const RegisterProperty = () => {
   const [step, setStep] = useState(0);
 
   const [rentClicked, setRent] = useState(false);
+  const [isFurnished, setIsFurnished] = useState(false);
+  const [showImage, setShowImage] = useState(false);
+  const previewImage = useRef(null);
   // const [name,setName]=useState('')
   const [formState, setState] = useState({
     name: '',
-    propertyType: '',
     imageUrl: '',
     bedrooms: '',
     livingRooms: '',
     bathrooms: '',
-    furnished: '',
     price: '',
     address: '',
     description: '',
   });
 
+  function submit(e) {
+    e.preventDefault();
+    Axios.post('http://localhost:5000/formdata', {
+      formState,
+    }).then((res) => {
+      console.log(res.data);
+    });
+  }
   return (
     <FormContext.Provider
-      value={{ step, setStep, formState, setState, rentClicked, setRent }}
+      value={{
+        step,
+        setStep,
+        formState,
+        setState,
+        rentClicked,
+        setRent,
+        isFurnished,
+        setIsFurnished,
+        previewImage,
+        showImage,
+        setShowImage,
+      }}
     >
       <div className=" bg-gradient-to-r from-gray-200 to-gray-50 h-screen">
         {/* @TODO: add Navbar here  */}
@@ -39,14 +61,14 @@ const RegisterProperty = () => {
           <ProgressSteps step={step} setStep={setStep} />
         </div>
         {/* <form action="" className="flex justify-center "> */}
-        <div className="flex justify-center ">
+        <form className="flex justify-center " onSubmit={submit}>
           <div className="right bg-white flex flex-col items-center justify-center shadow-lg rounded-2xl border-slate-0 border-2 w-11/12 md:w-4/5 lg:w-1/2 transition-all">
             {formItems.map((FormItem, index) => {
               return index === step && FormItem;
             })}
           </div>
-        </div>
-        <PrevNext step={step} setStep={setStep} />
+        </form>
+        {/* <PrevNext step={step} setStep={setStep} /> */}
       </div>
     </FormContext.Provider>
   );
