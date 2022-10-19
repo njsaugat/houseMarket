@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import PrevNext from './PrevNext';
+import { FormContext } from './RegisterProperty';
 
 const buttonProperty = 'px-3 py-1  w-1/2 transition-all ease-out';
 const selectedProperty = `${buttonProperty} bg-gradient-to-t from-sky-400 to-cyan-100 font-bold tracking-wider `;
 
 const Mid = () => {
-  const [isFurnished, setIsFurnished] = useState(false);
+
+  const { step, setStep } = useContext(FormContext);
+  
+  const { formState, setState } = useContext(FormContext);
+  const { isFurnished, setIsFurnished } = useContext(FormContext);
   return (
     <>
       <div className="option option2  flex items-center  my-5   w-3/5 ">
@@ -17,6 +23,12 @@ const Mid = () => {
           name="name"
           id="bedrooms"
           min={0}
+          value={formState.bedrooms}
+          onChange={(e) => {
+            setState((prevState) => {
+              return { ...prevState, bedrooms: e.target.value };
+            });
+          }}
         />
       </div>
       <div className="option option2  flex items-center   my-5   w-3/5 ">
@@ -29,6 +41,12 @@ const Mid = () => {
           name="name"
           id="living"
           min={0}
+          value={formState.livingRooms}
+          onChange={(e) => {
+            setState((prevState) => {
+              return { ...prevState, livingRooms: e.target.value };
+            });
+          }}
         />
       </div>
       <div className="option option2  flex items-center  my-5   w-3/5 ">
@@ -41,6 +59,12 @@ const Mid = () => {
           name="name"
           min={0}
           id="bathrooms"
+          value={formState.bathrooms}
+          onChange={(e) => {
+            setState((prevState) => {
+              return { ...prevState, bathrooms: e.target.value };
+            });
+          }}
         />
       </div>
 
@@ -78,6 +102,8 @@ const Mid = () => {
           </button>
         </div>
       </div>
+      <PrevNext step={step} setStep={setStep} />
+
     </>
   );
 };
