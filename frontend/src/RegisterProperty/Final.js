@@ -7,7 +7,7 @@ const Final = () => {
   const { step, setStep } = useContext(FormContext);
 
   return (
-    <>
+    <form className="w-full flex flex-col justify-center">
       <div className="option flex flex-col my-5 self-center  w-3/5 ">
         <label className="font-bold tracking-wider mb-1" htmlFor="price">
           Price
@@ -61,9 +61,9 @@ const Final = () => {
           }}
         ></textarea>
       </div>
-      {/* <button type="submit">Submit</button> */}
       <PrevNext step={step} setStep={setStep} />
-    </>
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 
