@@ -9,14 +9,14 @@ const selectedProperty = `${buttonProperty} bg-gradient-to-t from-sky-400 to-cya
 const plusIcon = <FontAwesomeIcon icon={faPlus} />;
 
 const Intro = () => {
-  const previewImage = useRef(null);
-
-  // const { step, setStep } = useContext(FormContext);
+  const { step, setStep } = useContext(FormContext);
   const { formState, setState } = useContext(FormContext);
   const { rentClicked, setRent } = useContext(FormContext);
+  const { showImage, setShowImage } = useContext(FormContext);
+  const { previewImage } = useContext(FormContext);
 
   return (
-    <form className="w-full flex flex-col items-center">
+    <>
       <div className="option flex flex-col my-5 self-center  w-1/2 ">
         <label className="font-bold tracking-wider mb-1" htmlFor="name">
           Name
@@ -76,9 +76,9 @@ const Intro = () => {
       <div className=" flex  my-5 self-center  w-1/2 items-center justify-evenly  ">
         <img
           id="viewProperty"
-          src="#"
+          src={formState.imageUrl}
           ref={previewImage}
-          className={'hidden '}
+          className={showImage ? 'h-36 w-48' : 'hidden'}
           loading="lazy"
           alt=""
         ></img>
@@ -101,14 +101,22 @@ const Intro = () => {
             const [file] = e.target.files;
             if (file) {
               previewImage.current.src = URL.createObjectURL(file);
-              previewImage.current.className = 'h-36 w-48';
+              // previewImage.current.className = 'h-36 w-48';
+              setShowImage(true);
+              setState((prevState) => {
+                // console.log(formState);
+                return {
+                  ...prevState,
+                  imageUrl: URL.createObjectURL(file),
+                };
+              });
             }
           }}
         ></input>
       </div>
       {/* <button type="submit">submit</button> */}
-      {/* <PrevNext step={step} setStep={setStep} /> */}
-    </form>
+      <PrevNext step={step} setStep={setStep} />
+    </>
   );
 };
 
