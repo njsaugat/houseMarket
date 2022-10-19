@@ -34,6 +34,7 @@ const PrevNext = ({ step, setStep }) => {
           }
           type="sumbit"
           onClick={() => {
+            // TODO: redirect to explore page
             setStep((prevStep) =>
               prevStep === progressSteps.length - 1
                 ? progressSteps.length - 1
