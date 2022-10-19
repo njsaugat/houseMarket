@@ -61,7 +61,7 @@ const RegisterProperty = () => {
           <ProgressSteps step={step} setStep={setStep} />
         </div>
         {/* <form action="" className="flex justify-center "> */}
-        <form className="flex justify-center " onSubmit={submit}>
+        <form className="flex justify-center ">
           <div className="right bg-white flex flex-col items-center justify-center shadow-lg rounded-2xl border-slate-0 border-2 w-11/12 md:w-4/5 lg:w-1/2 transition-all">
             {formItems.map((FormItem, index) => {
               return index === step && FormItem;
