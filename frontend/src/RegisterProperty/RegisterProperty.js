@@ -35,7 +35,11 @@ const RegisterProperty = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formState),
+      body: JSON.stringify({
+        ...formState,
+        rent: rentClicked,
+        furnished: isFurnished,
+      }),
     })
       .then((res) => res.json())
       .then((res) => {
