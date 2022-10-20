@@ -16,7 +16,7 @@ const Final = () => {
           className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 "
           id="price"
           type="number"
-          name="name"
+          name="price"
           min={0}
           placeholder="Rs."
           value={formState.price}
@@ -34,7 +34,7 @@ const Final = () => {
         <input
           className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 "
           type="text"
-          name="name"
+          name="address"
           id="address"
           value={formState.address}
           onChange={(e) => {
@@ -51,7 +51,7 @@ const Final = () => {
         <textarea
           className="border-gray-300 border-0 shadow-md  bg-gray-100 w-full  rounded-lg  px-3 py-2 outline-0 resize-none h-28 "
           type="text"
-          name="name"
+          name="description"
           id="description"
           value={formState.description}
           onChange={(e) => {
