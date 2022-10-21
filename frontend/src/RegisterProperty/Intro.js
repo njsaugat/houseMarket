@@ -14,7 +14,10 @@ const Intro = () => {
   const { rentClicked, setRent } = useContext(FormContext);
   const { showImage, setShowImage } = useContext(FormContext);
   const { previewImage } = useContext(FormContext);
+  const { inputImageFile } = useContext(FormContext);
 
+  const { setImage } = useContext(FormContext);
+  // const { selectedImage, setSelectedImage } = useContext(FormContext);
   return (
     <>
       <div className="option flex flex-col my-5 self-center  w-1/2 ">
@@ -93,12 +96,14 @@ const Intro = () => {
         <input
           type="file"
           id="myfile"
-          name="myfile"
+          name="uploadedImage"
           className="hidden"
           accept="image/*"
           required
+          ref={inputImageFile}
           onChange={(e) => {
             const [file] = e.target.files;
+            console.log(file);
             if (file) {
               previewImage.current.src = URL.createObjectURL(file);
               // previewImage.current.className = 'h-36 w-48';
@@ -108,12 +113,20 @@ const Intro = () => {
                 return {
                   ...prevState,
                   imageUrl: URL.createObjectURL(file),
+                  image: file,
                 };
               });
+
+              const img = {
+                preview: URL.createObjectURL(e.target.files[0]),
+                data: e.target.files[0],
+              };
+              setImage(img);
             }
           }}
         ></input>
       </div>
+
       {/* <button type="submit">submit</button> */}
       <PrevNext step={step} setStep={setStep} />
     </>
