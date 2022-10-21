@@ -18,6 +18,7 @@ const Final = () => {
           type="number"
           name="price"
           min={0}
+          required
           placeholder="Rs."
           value={formState.price}
           onChange={(e) => {
@@ -36,6 +37,7 @@ const Final = () => {
           type="text"
           name="address"
           id="address"
+          required
           value={formState.address}
           onChange={(e) => {
             setState((prevState) => {
@@ -53,6 +55,7 @@ const Final = () => {
           type="text"
           name="description"
           id="description"
+          required
           value={formState.description}
           onChange={(e) => {
             setState((prevState) => {
