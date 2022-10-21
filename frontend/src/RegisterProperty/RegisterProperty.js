@@ -16,6 +16,9 @@ const RegisterProperty = () => {
   const [isFurnished, setIsFurnished] = useState(false);
   const [showImage, setShowImage] = useState(false);
   const previewImage = useRef(null);
+  const inputImageFile = useRef(null);
+  // const [selectedImage, setSelectedImage] = useState(null);
+  const [image, setImage] = useState({ preview: '', data: '' });
   // const [name,setName]=useState('')
   const [formState, setState] = useState({
     name: '',
@@ -26,25 +29,51 @@ const RegisterProperty = () => {
     price: '',
     address: '',
     description: '',
+    image: '',
   });
 
+  // function getBlob(url) {
+  //   let blob = fetch(url).then((r) => r.blob());
+  //   console.log(blob);
+  // }
   function submit(e) {
-    // e.preventDefault();
-    Axios.post('/formdata', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        ...formState,
-        rent: rentClicked,
-        furnished: isFurnished,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-      });
+    e.preventDefault();
+    // const [file] = inputImageFile.current.files;
+    // console.log(file);
+
+    const formData = new FormData();
+    formData.append('file', image.data, image.data.name);
+
+    for (var key of formData.entries()) {
+      console.log(key[0] + ', ' + key[1]);
+    }
+
+    // console.log(formData);
+
+    // const blob = getBlob(formState.imageUrl);
+    // console.log(blob);
+    // const imageData = JSON.stringify(image.data);
+    // console.log(imageData);
+    console.log(image.data);
+    // Axios.post('/formdata', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'mutlipart/form-data',
+    //   },
+    //   body: {
+    //     ...formState,
+    //     rent: rentClicked,
+    //     furnished: isFurnished,
+    //     // ...formData,
+    //     // data: image.data,
+    //     // imageFile: file,
+    //   },
+    // });
+    Axios.post('/formdata', formData).then((res) => console.log(res));
+    // .then((res) => res.json())
+    // .then((res) => {
+    //   console.log(res);
+    // });
   }
   return (
     <FormContext.Provider
@@ -60,6 +89,10 @@ const RegisterProperty = () => {
         previewImage,
         showImage,
         setShowImage,
+        inputImageFile,
+        image,
+        setImage,
+        // selectedImage,setSelectedImage
       }}
     >
       <div className=" bg-gradient-to-r from-gray-200 to-gray-50 h-screen">
@@ -71,7 +104,11 @@ const RegisterProperty = () => {
           <ProgressSteps step={step} setStep={setStep} />
         </div>
         {/* <form action="" className="flex justify-center "> */}
-        <form className="flex justify-center " onSubmit={(e) => submit(e)}>
+        <form
+          className="flex justify-center "
+          onSubmit={(e) => submit(e)}
+          enctype="multipart/form-data"
+        >
           <div className="right bg-white flex flex-col items-center justify-center shadow-lg rounded-2xl border-slate-0 border-2 w-11/12 md:w-4/5 lg:w-1/2 transition-all">
             {formItems.map((FormItem, index) => {
               return index === step && FormItem;
