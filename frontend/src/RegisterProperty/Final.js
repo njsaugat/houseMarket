@@ -62,9 +62,7 @@ const Final = () => {
               return { ...prevState, description: e.target.value };
             });
           }}
-        >
-
-        {/* </textarea> */}
+        ></textarea>
       </div>
       <PrevNext step={step} setStep={setStep} />
       {/* <button type="submit">Submit</button> */}
