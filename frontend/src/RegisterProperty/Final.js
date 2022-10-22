@@ -65,7 +65,7 @@ const Final = () => {
         ></textarea>
       </div>
       <PrevNext step={step} setStep={setStep} />
-      {/* <button type="submit">Submit</button> */}
+      <button type="submit">Submit</button>
     </>
   );
 };
