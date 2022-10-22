@@ -70,4 +70,4 @@ const Final = () => {
   );
 };
 
-export default Fina;
+export default Final;
