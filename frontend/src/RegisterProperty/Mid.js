@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import PrevNext from './PrevNext';
 import { FormContext } from './RegisterProperty';
 
-// const buttonProperty = 'px-3 py-1  w-1/2 transition-all ease-out';
+const buttonProperty = 'px-3 py-1  w-1/2 transition-all ease-out';
 const selectedProperty = `${buttonProperty} bg-gradient-to-t from-sky-400 to-cyan-100 font-bold tracking-wider `;
 
 const Mid = () => {
