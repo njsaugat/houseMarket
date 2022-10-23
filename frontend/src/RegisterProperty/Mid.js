@@ -101,7 +101,7 @@ const Mid = () => {
           </button>
         </div>
       </div>
-      <PrevNext step={step} setStep={setStep} />
+      {/* <PrevNext step={step} setStep={setStep} /> */}
     </>
   );
 };
