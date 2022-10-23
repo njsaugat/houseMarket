@@ -106,4 +106,4 @@ const Mid = () => {
   );
 };
 
-// export default Mid;
+export default Mid;
