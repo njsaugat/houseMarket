@@ -104,6 +104,6 @@ const Mid = () => {
       <PrevNext step={step} setStep={setStep} />
     </>
   );
-// };
+};
 
 export default Mid;
