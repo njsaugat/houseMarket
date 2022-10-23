@@ -6,9 +6,8 @@ const buttonProperty = 'px-3 py-1  w-1/2 transition-all ease-out';
 const selectedProperty = `${buttonProperty} bg-gradient-to-t from-sky-400 to-cyan-100 font-bold tracking-wider `;
 
 const Mid = () => {
-
   const { step, setStep } = useContext(FormContext);
-  
+
   const { formState, setState } = useContext(FormContext);
   const { isFurnished, setIsFurnished } = useContext(FormContext);
   return (
@@ -103,9 +102,8 @@ const Mid = () => {
         </div>
       </div>
       <PrevNext step={step} setStep={setStep} />
-
     </>
   );
 };
 
-export default Mid;
+// export default Mid;
