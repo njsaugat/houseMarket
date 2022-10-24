@@ -131,6 +131,6 @@ const Intro = () => {
       <PrevNext step={step} setStep={setStep} />
     </>
   );
-// };
+};
 
 export default Intro;
