@@ -129,7 +129,7 @@ const Intro = () => {
 
       {/* <button type="submit">submit</button> */}
       <PrevNext step={step} setStep={setStep} />
-    </>
+    {/* </> */}
   );
 };
 
