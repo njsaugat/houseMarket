@@ -117,7 +117,7 @@ const RegisterProperty = () => {
         </form>
         {/* <PrevNext step={step} setStep={setStep} /> */}
       </div>
-    {/* </FormContext.Provider> */}
+    </FormContext.Provider>
   );
 };
 
