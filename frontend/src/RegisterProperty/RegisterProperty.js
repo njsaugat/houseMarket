@@ -119,6 +119,6 @@ const RegisterProperty = () => {
       </div>
     </FormContext.Provider>
   );
-// };
+};
 
 export default RegisterProperty;
