@@ -121,4 +121,4 @@ const RegisterProperty = () => {
   );
 };
 
-// export default RegisterProperty;
+export default RegisterProperty;
