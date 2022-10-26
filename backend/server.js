@@ -98,6 +98,7 @@ app.post('/formdata', upload.single('file'), (req, res) => {
   // // console.log(formData);q
   // const { imageUrl } = formData;
   // console.log(imageUrl);
+
   // const file = new File([imageUrl], 'name');
   // console.log(file);
   // getBlob(imageUrl);
