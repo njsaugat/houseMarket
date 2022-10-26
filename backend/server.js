@@ -104,6 +104,6 @@ app.post('/formdata', upload.single('file'), (req, res) => {
   // getBlob(imageUrl);
 });
 
-app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Example app listening on port ${PORT}`);
+// });
