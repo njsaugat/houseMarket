@@ -46,7 +46,7 @@ const PrevNext = ({ step, setStep }) => {
         </button>
       </div>
     </div>
-  // );
+  );
 };
 
 export default PrevNext;
