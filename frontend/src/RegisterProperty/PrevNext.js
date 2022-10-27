@@ -45,7 +45,7 @@ const PrevNext = ({ step, setStep }) => {
           {step === progressSteps.length - 1 ? 'Submit' : 'Next'}
         </button>
       </div>
-    {/* </div> */}
+    </div>
   );
 };
 
