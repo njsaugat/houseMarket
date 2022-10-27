@@ -47,6 +47,6 @@ const PrevNext = ({ step, setStep }) => {
       </div>
     </div>
   );
-};
+// };
 
 export default PrevNext;
