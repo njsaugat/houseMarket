@@ -39,4 +39,4 @@ const ProgressSteps = ({ step, setStep }) => {
   );
 };
 
-export default ProgressSteps;
+default ProgressSteps;
