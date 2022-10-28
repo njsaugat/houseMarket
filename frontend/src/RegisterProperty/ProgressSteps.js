@@ -37,6 +37,6 @@ const ProgressSteps = ({ step, setStep }) => {
       </div>
     </>
   );
-};
+// };
 
 export default ProgressSteps;
