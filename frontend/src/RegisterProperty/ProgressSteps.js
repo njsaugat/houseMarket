@@ -7,7 +7,7 @@ const currentCircle = `${circleProperty} border-0 border-slate-100 bg-gradient-t
 const lineProperty = `line w-20 lg:w-24 h-1.5 bg-slate-300 transition-all duration-500 `;
 const activeLine = `${lineProperty}  bg-gradient-to-r from-sky-500 to-cyan-400`;
 
-// const ProgressSteps = ({ step, setStep }) => {
+const ProgressSteps = ({ step, setStep }) => {
   //   const steps = useRef(null);
   return (
     <>
