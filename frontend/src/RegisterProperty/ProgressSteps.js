@@ -31,7 +31,7 @@ const ProgressSteps = ({ step, setStep }) => {
                   className={step - 1 >= index ? activeLine : lineProperty}
                 ></div>
               )}
-            </div>
+            {/* </div> */}
           );
         })}
       </div>
