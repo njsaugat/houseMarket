@@ -9,7 +9,7 @@ const activeLine = `${lineProperty}  bg-gradient-to-r from-sky-500 to-cyan-400`;
 
 const ProgressSteps = ({ step, setStep }) => {
   //   const steps = useRef(null);
-  // return (
+  return (
     <>
       <div className="flex items-center justify-center w-screen ">
         {progressSteps.map((progressStep, index) => {
