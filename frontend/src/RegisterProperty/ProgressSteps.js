@@ -1,7 +1,7 @@
 import React from 'react';
 import { progressSteps } from './progressStepsArr';
 const circleProperty = `w-10 h-10 border-2 rounded-full flex justify-center items-center transition-all  duration-500`;
-const activeCirlce = `${circleProperty}  w-11 h-11 border-sky-400 border-4 rounded-full transition-all duration-500 `;
+// const activeCirlce = `${circleProperty}  w-11 h-11 border-sky-400 border-4 rounded-full transition-all duration-500 `;
 const currentCircle = `${circleProperty} border-0 border-slate-100 bg-gradient-to-r from-sky-400 to-cyan-100`;
 
 const lineProperty = `line w-20 lg:w-24 h-1.5 bg-slate-300 transition-all duration-500 `;
