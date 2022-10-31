@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PrevNext from './PrevNext';
 import { FormContext } from './RegisterProperty';
 
-// const Final = () => {
+const Final = () => {
   const { formState, setState } = useContext(FormContext);
   const { step, setStep } = useContext(FormContext);
 
