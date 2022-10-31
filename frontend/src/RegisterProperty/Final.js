@@ -4,7 +4,7 @@ import { FormContext } from './RegisterProperty';
 
 const Final = () => {
   const { formState, setState } = useContext(FormContext);
-  // const { step, setStep } = useContext(FormContext);
+  const { step, setStep } = useContext(FormContext);
 
   return (
     <>
