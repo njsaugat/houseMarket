@@ -27,7 +27,7 @@ const Final = () => {
             });
           }}
         />
-      </div>
+      {/* </div> */}
       <div className="option flex flex-col my-5 self-center  w-3/5 ">
         <label className="font-bold tracking-wider mb-1" htmlFor="address">
           Address
