@@ -2,7 +2,7 @@ import housings from '../housings.png';
 
 const TryService = () => {
   return (
-    <div className="flex relative p-10 md:p-20 justify-between items-center my-10 rounded-2xl bg-gradient-to-b from-gray-400 to-black-50 ">
+    <div className="flex relative p-10 md:p-20 justify-between items-center my-10  bg-gradient-to-b from-gray-400 to-black-50 ">
       <div className="left w-3/5">
         <h1 className="font-bold text-5xl my-5  leading-tight md:leading-snug">
           Let’s start your dream house journey now!
