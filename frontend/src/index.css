@@ -8,9 +8,21 @@ body {
 .navbar {
   transition: 0.5s ease-in;
 }
-#portal div {
+/* #portal div {
   transition: 0.5s ease-in;
 }
+#portal {
+  opacity: 0;
+  transition: 0.5s ease-in;
+} */
+/* 
+.mini-navbar {
+  opacity: 0;
+  transition: 0.4s ease;
+}
+.mini-navbar .active {
+  opacity: 1;
+} */
 
 /* .signup-form:after {
   content: '';
