@@ -6,8 +6,30 @@ body {
   overflow-x: hidden;
 }
 .navbar {
+  transition: 0.3s ease-in;
+}
+#portal {
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+#portal.active {
+  opacity: 1;
+}
+/* .navs.inactive {
+  opacity: 0;
   transition: 0.5s ease-in;
 }
+.navs.acitve {
+  opacity: 1;
+} */
+
+/* #portal {
+  transform: translateX(200px);
+  transition: 0.3s ease-in-out;
+}
+#portal.active {
+  transform: translateX(0px);
+} */
 /* #portal div {
   transition: 0.5s ease-in;
 }
