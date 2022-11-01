@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -12,6 +12,7 @@ import {
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import Banner from '../components/Banner';
+import RenderMenuList from './RenderMenuList';
 
 const menuIcon = <FontAwesomeIcon icon={faBars} />;
 const crossIcon = <FontAwesomeIcon icon={faXmark} />;
@@ -24,30 +25,30 @@ const solutionIcon = <FontAwesomeIcon icon={faCoins} />;
 const menuIcons = [homeIcon, aboutUsIcon, featuresIcon, solutionIcon];
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const RenderMenuList = ({ icons }) => {
-    return (
-      <>
-        <a href="# " target="_blank" rel="noreferrer" className="list-none">
-          {icons && icons[0]} Home
-        </a>
-        <a href="# " target="_blank" rel="noreferrer" className="list-none">
-          {icons && icons[3]} Explore
-        </a>
-        <a href="# " target="_blank" rel="noreferrer" className="list-none">
-          {icons && icons[2]} Offers
-        </a>
-        <a href="# " target="_blank" rel="noreferrer" className="list-none">
-          {icons && icons[1]} About Us
-        </a>
-      </>
-    );
-  };
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
 
   const ShowPortal = () => {
+    useEffect(() => {
+      // window.addEventListener('resize', () => {
+      //   setWindowSize(window.innerWidth);
+      // });
+      function handleWindowResize() {
+        setWindowSize(window.innerWidth);
+        if (windowSize >= 850) {
+          setShowMenu(false);
+        }
+      }
+
+      window.addEventListener('resize', handleWindowResize);
+
+      return () => {
+        window.removeEventListener('resize', handleWindowResize);
+      };
+    }, []);
     return createPortal(
       <div
-        className="fixed top-0 left-0 right-0 bottom-0 z-100 bg-gradient-to-b from-slate-900 to-gray-100  bg-opacity-95 overflow-y-hidden
-      w-11/12 h-screen text-white  transition ease-in-out delay-400"
+        className="fixed top-0 left-0 right-0 bottom-0 z-100 bg-gradient-to-b from-cyan-600 to-cyan-100  bg-opacity-95 overflow-y-hidden
+      w-11/12 h-screen text-white  transition ease-in-out delay-400 inset-0  "
       >
         <div className="absolute    flex justify-between w-11/12 h-screen z-100    text-2xl  p-10 ">
           <div className="lists flex flex-col gap-10">
