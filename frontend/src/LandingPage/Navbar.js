@@ -21,7 +21,7 @@ const homeIcon = <FontAwesomeIcon icon={faHouse} />;
 const aboutUsIcon = <FontAwesomeIcon icon={faUser} />;
 const featuresIcon = <FontAwesomeIcon icon={faListCheck} />;
 const solutionIcon = <FontAwesomeIcon icon={faCoins} />;
-
+const portal = document.getElementById('portal');
 const menuIcons = [homeIcon, aboutUsIcon, featuresIcon, solutionIcon];
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -47,15 +47,18 @@ const Navbar = () => {
     }, []);
     return createPortal(
       <div
-        className="fixed top-0 left-0 right-0 bottom-0 z-100 bg-gradient-to-b from-cyan-600 to-cyan-100  bg-opacity-95 overflow-y-hidden
-      w-11/12 h-screen text-white  transition ease-in-out delay-400 inset-0  "
+        className={`fixed navs top-0 left-0 right-0 bottom-0 z-100 bg-gradient-to-b from-cyan-600 to-cyan-100  bg-opacity-95 overflow-y-hidden
+      w-11/12 h-screen text-white  transition ease-in-out delay-400 inset-0`}
       >
         <div className="absolute    flex justify-between w-11/12 h-screen z-100    text-2xl  p-10 ">
           <div className="lists flex flex-col gap-10">
             <RenderMenuList icons={menuIcons} />
           </div>
           <span
-            onClick={() => setShowMenu(false)}
+            onClick={() => {
+              setShowMenu(false);
+              portal.classList.remove('active');
+            }}
             className="cursor-pointer rounded-lg  p-2 bg-gradient-to-b from-gray-600 to-black-50 w-10 h-10 flex justify-center items-center"
           >
             {crossIcon}
@@ -72,6 +75,7 @@ const Navbar = () => {
         className="lg:hidden absolute right-10  text-3xl cursor-pointer rounded-lg  p-2 bg-gradient-to-b from-gray-600 to-black-50"
         onClick={() => {
           setShowMenu(true);
+          portal.classList.add('active');
         }}
       >
         {menuIcon}
