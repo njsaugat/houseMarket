@@ -3,7 +3,7 @@ import React, { createContext, useRef, useState } from 'react';
 import Final from './Final';
 import Intro from './Intro';
 import Mid from './Mid';
-import PrevNext from './PrevNext';
+// import PrevNext from './PrevNext';
 import ProgressSteps from './ProgressSteps';
 import Axios from 'axios';
 
@@ -32,48 +32,25 @@ const RegisterProperty = () => {
     image: '',
   });
 
-  // function getBlob(url) {
-  //   let blob = fetch(url).then((r) => r.blob());
-  //   console.log(blob);
-  // }
   function submit(e) {
     e.preventDefault();
-    // const [file] = inputImageFile.current.files;
-    // console.log(file);
 
     const formData = new FormData();
-    formData.append('file', image.data, image.data.name);
+    formData.append('photo', image.data, image.data.name);
 
-    for (var key of formData.entries()) {
-      console.log(key[0] + ', ' + key[1]);
-    }
-
-    // console.log(formData);
-
-    // const blob = getBlob(formState.imageUrl);
-    // console.log(blob);
-    // const imageData = JSON.stringify(image.data);
-    // console.log(imageData);
     console.log(image.data);
-    // Axios.post('/formdata', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'mutlipart/form-data',
-    //   },
-    //   body: {
-    //     ...formState,
-    //     rent: rentClicked,
-    //     furnished: isFurnished,
-    //     // ...formData,
-    //     // data: image.data,
-    //     // imageFile: file,
-    //   },
-    // });
+    Axios.post('/formdata', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'mutlipart/form-data',
+      },
+      body: {
+        ...formState,
+        rent: rentClicked,
+        furnished: isFurnished,
+      },
+    });
     Axios.post('/formdata', formData).then((res) => console.log(res));
-    // .then((res) => res.json())
-    // .then((res) => {
-    //   console.log(res);
-    // });
   }
   return (
     <FormContext.Provider
@@ -96,7 +73,7 @@ const RegisterProperty = () => {
       }}
     >
       <div className=" bg-gradient-to-r from-gray-200 to-gray-50 h-screen">
-        {/* @TODO: add Navbar here  */}
+        {/* //@TODO: add Navbar here  */}
         <h1 className="text-2xl font-bold text-center tracking-wider py-5 ">
           Register your property at GharShar
         </h1>
