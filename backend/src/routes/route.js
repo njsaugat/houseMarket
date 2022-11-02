@@ -1,41 +1,19 @@
+// wiki.js - Wiki route module.
+
 const express = require('express');
-const app = express();
+const { postProperty } = require('../controllers/controller');
+const router = express.Router();
+// const postProperty=
+// Home page route.
+// router.get("/", function (req, res) {
+//   res.send("Wiki home page");
+// });
 
-// respond with "hello world" when a GET request is made to the homepage
-app.get('/', (req, res) => {
-  res.send('hello world');
-});
+// // About page route.
+// router.get("/about", function (req, res) {
+//   res.send("About this wiki");
+// });
 
-// GET method route
-app.get('/', (req, res) => {
-  res.send('GET request to the homepage');
-});
+router.post('/formdata', postProperty);
 
-// POST method route
-app.post('/', (req, res) => {
-  res.send('POST request to the homepage');
-});
-app.get('/', (req, res) => {
-  res.send('root');
-});
-
-app.get('/about', (req, res) => {
-  res.send('about');
-});
-app.get('/random.text', (req, res) => {
-  res.send('random.text');
-});
-app.get('/ab?cd', (req, res) => {
-  res.send('ab?cd');
-});
-app.get('/ab+cd', (req, res) => {
-  res.send('ab+cd');
-});
-
-app.get('/ab(cd)?e', (req, res) => {
-  res.send('ab(cd)?e');
-});
-
-app.get(/.*fly$/, (req, res) => {
-  res.send('/.*fly$/');
-});
+module.exports = router;
