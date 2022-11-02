@@ -20,7 +20,7 @@ const Intro = () => {
   // const { selectedImage, setSelectedImage } = useContext(FormContext);
   return (
     <>
-      <div className="option flex flex-col my-5 self-center  w-1/2 ">
+      <div className="option flex flex-col my-5 self-center  w-1/2 " key={1}>
         <label className="font-bold tracking-wider mb-1" htmlFor="name">
           Name
         </label>
