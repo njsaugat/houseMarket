@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('kinetic.css');
 body {
   overflow-x: hidden;
 }
