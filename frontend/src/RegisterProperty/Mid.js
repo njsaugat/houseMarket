@@ -12,7 +12,7 @@ const Mid = () => {
   const { isFurnished, setIsFurnished } = useContext(FormContext);
   return (
     <>
-      <div className="option option2  flex items-center  my-5   w-3/5 ">
+      <div className="option option2  flex items-center  my-5   w-3/5 " key={2}>
         <label className="font-bold tracking-wider w-56 " htmlFor="bedrooms">
           Bedrooms
         </label>
