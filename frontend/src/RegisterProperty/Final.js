@@ -8,7 +8,7 @@ const Final = () => {
 
   return (
     <>
-      <div className="option flex flex-col my-5 self-center  w-3/5 ">
+      <div className="option flex flex-col my-5 self-center  w-3/5 " key={3}>
         <label className="font-bold tracking-wider mb-1" htmlFor="price">
           Price
         </label>
