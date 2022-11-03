@@ -8,6 +8,17 @@ const prisma = require('../utils/prismaClient');
 
 exports.postProperty = async (req, res) => {
   console.log(req.body);
+  const {
+    name,
+    address,
+    description,
+    furnished,
+    price,
+    rent,
+    livingRooms,
+    bathrooms,
+    bedrooms,
+  } = req.body.body;
   if (!req.file) {
     console.log('No file upload');
   } else {
