@@ -19,6 +19,20 @@ exports.postProperty = async (req, res) => {
     bathrooms,
     bedrooms,
   } = req.body.body;
+  const newUser = await prisma.user.create({
+    data: {
+      name: name,
+      location: address,
+      description: description,
+      furnished: furnished,
+      price: price,
+      propertyType: rent === true ? 'Rent' : 'Sale',
+      livingRoom: livingRooms,
+      bathRoom: bathrooms,
+      bedRoom: bedrooms,
+    },
+  });
+
   if (!req.file) {
     console.log('No file upload');
   } else {
