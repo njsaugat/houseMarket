@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const { PrismaClient } = require('@prisma/client');
+
+const prisma = new PrismaClient();
 
 exports.postProperty = (req, res) => {
   console.log(req.body);
