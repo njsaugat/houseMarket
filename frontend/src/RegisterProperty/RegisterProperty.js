@@ -1,5 +1,6 @@
 import React, { createContext, useRef, useState } from 'react';
 // import Banner from '../components/Banner';
+import { useNavigate } from 'react-router-dom';
 import Final from './Final';
 import Intro from './Intro';
 import Mid from './Mid';
@@ -10,6 +11,7 @@ import Axios from 'axios';
 export const FormContext = createContext();
 const formItems = [<Intro />, <Mid />, <Final />];
 const RegisterProperty = () => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(0);
 
   const [rentClicked, setRent] = useState(false);
@@ -51,6 +53,11 @@ const RegisterProperty = () => {
       },
     });
     Axios.post('/formdata', formData).then((res) => console.log(res));
+
+    navigate('/loading');
+    setTimeout(() => {
+      navigate('/');
+    }, 2000);
   }
   return (
     <FormContext.Provider
@@ -84,13 +91,22 @@ const RegisterProperty = () => {
         <form
           className="flex justify-center "
           onSubmit={(e) => submit(e)}
-          enctype="multipart/form-data"
+          encType="multipart/form-data"
         >
-          <div className="right bg-white flex flex-col items-center justify-center shadow-lg rounded-2xl border-slate-0 border-2 w-11/12 md:w-4/5 lg:w-1/2 transition-all">
+          <>
             {formItems.map((FormItem, index) => {
-              return index === step && FormItem;
+              return (
+                index === step && (
+                  <div
+                    key={index}
+                    className="right bg-white flex flex-col items-center justify-center shadow-lg rounded-2xl border-slate-0 border-2 w-11/12 md:w-4/5 lg:w-1/2 transition-all"
+                  >
+                    {FormItem}
+                  </div>
+                )
+              );
             })}
-          </div>
+          </>
         </form>
         {/* <PrevNext step={step} setStep={setStep} /> */}
       </div>
