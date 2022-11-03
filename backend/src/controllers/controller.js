@@ -1,10 +1,12 @@
+// const { prisma } = require('@prisma/client');
 const express = require('express');
 const router = express.Router();
-const { PrismaClient } = require('@prisma/client');
 
-const prisma = new PrismaClient();
+// import { prisma } from '../utils/prismaClient';
+const prisma = require('../utils/prismaClient');
+// console.log(prisma);
 
-exports.postProperty = (req, res) => {
+exports.postProperty = async (req, res) => {
   console.log(req.body);
   if (!req.file) {
     console.log('No file upload');
