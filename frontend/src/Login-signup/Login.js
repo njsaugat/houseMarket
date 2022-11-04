@@ -59,6 +59,7 @@ const Login = () => {
               }}
             />
           </div>
+
           <div className="option flex flex-col my-5 self-center w-full lg:w-10/12">
             <label className="font-bold tracking-wider mb-1" htmlFor="password">
               Password
