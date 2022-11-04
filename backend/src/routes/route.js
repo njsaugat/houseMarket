@@ -1,7 +1,8 @@
 // wiki.js - Wiki route module.
 
 const express = require('express');
-const { postProperty } = require('../controllers/controller');
+const { postProperty } = require('../controllers/propertyController');
+const { postOwner } = require('../controllers/userController');
 const router = express.Router();
 // const postProperty=
 // Home page route.
@@ -15,5 +16,7 @@ const router = express.Router();
 // });
 
 router.post('/formdata', postProperty);
+
+router.post('/owner', postOwner);
 
 module.exports = router;
