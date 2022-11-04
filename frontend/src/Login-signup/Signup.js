@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import Banner from '../components/Banner';
 import Tagline from '../components/Tagline';
 import loginHouse from '../loginHouse.png';
+import Axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import validator, {
   checkConfPassword,
   checkEmail,
@@ -9,12 +11,33 @@ import validator, {
 } from './validator';
 import { checkUsername } from './validator';
 const Signup = () => {
+  const navigate = useNavigate();
+
   const username = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
   const confPassword = useRef(null);
   const checkbox = useRef(null);
-
+  // const userInfo=[username,email,password,confPassword,checkbox]
+  const onSubmit = (e) => {
+    e.preventDefault();
+    // const
+    Axios.post('/owner', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'mutlipart/form-data',
+      },
+      body: {
+        name: username.current.value,
+        email: email.current.value,
+        password: password.current.value,
+      },
+    });
+    navigate('/loading');
+    setTimeout(() => {
+      navigate('/login');
+    }, 2000);
+  };
   return (
     <div className=" flex flex-col md:flex-row  w-screen h-screen min-h-screen">
       <div className="hidden w-auto md:flex flex-col items-center  justify-center  bg-gradient-to-r from-sky-300  ">
@@ -30,7 +53,11 @@ const Signup = () => {
           <Banner />
         </div>
         <h1 className="text-2xl font-bold mt-20  ">Sign Up to GharShar</h1>
-        <form className="p-7 md:p-10  m-2 w-10/12 md:w-full   flex flex-col justify-center items-center">
+        <form
+          className="p-7 md:p-10  m-2 w-10/12 md:w-full   flex flex-col justify-center items-center"
+          encType="multipart/form-data"
+          onSubmit={(e) => onSubmit(e)}
+        >
           <div className="flex gap-x-5 justify-between w-full lg:w-10/12">
             <div className="option flex flex-col my-5 self-center  w-1/2 ">
               <label className="font-bold tracking-wider mb-1" htmlFor="name">
