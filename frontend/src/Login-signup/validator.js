@@ -18,6 +18,14 @@ function clearPreviousErrors() {
     error.remove();
   });
 }
+export function loginValidator(e, email, password) {
+  clearPreviousErrors();
+  const hasMail = checkEmail(email);
+  const hasPass = checkPassword(password);
+  if (!hasMail || !hasPass) {
+    e.preventDefault();
+  }
+}
 
 export function checkUsername(username) {
   if (username.value.length < 3) {
