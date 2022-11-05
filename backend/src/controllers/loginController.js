@@ -17,5 +17,6 @@ exports.postLoginInfo = async (req, res) => {
     },
   });
   console.log(user[0].id);
+  res.send(user[0].id);
   // mns;
 };
