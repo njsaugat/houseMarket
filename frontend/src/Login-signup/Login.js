@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Banner from '../components/Banner';
 import Tagline from '../components/Tagline';
 import login from '../login.png';
@@ -11,18 +11,27 @@ import validator, {
 const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
+  const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem('userId', userId);
+  }, [userId]);
+
   const onSubmit = (e) => {
     e.preventDefault();
     // const
     Axios.post('/login', {
       method: 'POST',
       headers: {
-        'Content-Type': 'mutlipart/form-data',
+        'Content-Type': 'mutlipart/form-userId',
       },
       body: {
         email: email.current.value,
         password: password.current.value,
       },
+    }).then((res) => {
+      setUserId(res.data);
+      // console.log(res.data);
     });
     //@TODO add promises to check whether the user is genuine or not based on response from server
   };
