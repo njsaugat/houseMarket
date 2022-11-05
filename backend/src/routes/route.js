@@ -20,6 +20,6 @@ router.post('/formdata', postProperty);
 
 router.post('/owner', postOwner);
 
-router.post('login', postLoginInfo);
+router.post('/login', postLoginInfo);
 
 module.exports = router;
