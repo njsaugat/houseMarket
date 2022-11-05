@@ -3,7 +3,11 @@ import Banner from '../components/Banner';
 import Tagline from '../components/Tagline';
 import login from '../login.png';
 import Axios from 'axios';
-import validator, { checkEmail, checkPassword } from './validator';
+import validator, {
+  checkEmail,
+  checkPassword,
+  loginValidator,
+} from './validator';
 const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
@@ -80,7 +84,8 @@ const Login = () => {
             type="submit"
             onClick={(e) => {
               // e.preventDefault();
-              validator(e, email.current, password.current);
+              // validator(e, email.current, password.current);
+              loginValidator(e, email.current, password.current);
             }}
           >
             Sign In
