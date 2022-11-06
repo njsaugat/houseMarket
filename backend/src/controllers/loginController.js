@@ -4,7 +4,7 @@ exports.postLoginInfo = async (req, res) => {
   console.log(req.body.body);
   const { email, password } = req.body.body;
   //query the database
-  const user = await prisma.owner.findMany({
+  const use = await prisma.owner.findMany({
     // where: {
     //   AND: [
     //     {email: email},
