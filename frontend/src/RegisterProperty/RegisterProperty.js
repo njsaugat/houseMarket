@@ -1,4 +1,4 @@
-import React, { createContext, useRef, useState } from 'react';
+import React, { createContext, useEffect, useRef, useState } from 'react';
 // import Banner from '../components/Banner';
 import { useNavigate } from 'react-router-dom';
 import Final from './Final';
@@ -33,6 +33,17 @@ const RegisterProperty = () => {
     description: '',
     image: '',
   });
+  const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    const userID = localStorage.getItem('userId');
+    setUserId(userID);
+    console.log('user id is ' + userId);
+
+    // if (items) {
+    //  setItems(items);
+    // }
+  }, []);
 
   function submit(e) {
     e.preventDefault();
@@ -50,6 +61,7 @@ const RegisterProperty = () => {
         ...formState,
         rent: rentClicked,
         furnished: isFurnished,
+        userId,
       },
     });
     Axios.post('/formdata', formData).then((res) => console.log(res));
