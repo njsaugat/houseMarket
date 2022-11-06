@@ -66,10 +66,10 @@ const RegisterProperty = () => {
     });
     Axios.post('/formdata', formData).then((res) => console.log(res));
 
-    // navigate('/loading');
-    // setTimeout(() => {
-    //   navigate('/');
-    // }, 2000);
+    navigate('/loading');
+    setTimeout(() => {
+      navigate('/');
+    }, 2000);
   }
   return (
     <FormContext.Provider
