@@ -44,7 +44,9 @@ exports.postProperty = async (req, res) => {
       livingRooms,
       bathrooms,
       bedrooms,
+      userId,
     } = req.body.body;
+    console.log(userId);
     const newProperty = await prisma.property.create({
       data: {
         name: name,
@@ -56,7 +58,7 @@ exports.postProperty = async (req, res) => {
         livingRoom: +livingRooms,
         bathRoom: +bathrooms,
         bedRoom: +bedrooms,
-        owner: {},
+        owner: findUser(userId),
         images: {},
         // ownerId: ' ',
       },
@@ -67,3 +69,10 @@ exports.postProperty = async (req, res) => {
     console.log(imgsrc);
   }
 };
+
+async function findUser(userId) {
+  const user = await prisma.owner.findMany({
+    where: { id: userId },
+  });
+  return user[0];
+}
