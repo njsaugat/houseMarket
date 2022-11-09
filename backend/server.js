@@ -6,6 +6,7 @@ const cors = require('cors');
 const path = require('path');
 const router = require('./src/routes/route');
 const PORT = process.env.PORT || 5000;
+const session = require('express-session');
 
 //middlewares
 app.use(
@@ -14,6 +15,7 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(express.static('./public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
