@@ -1,17 +1,19 @@
 const prisma = require('../utils/prismaClient');
-
+const bcrypt = require('bcrypt');
 exports.postLoginInfo = async (req, res) => {
   console.log(req.body.body);
   const { email, password } = req.body.body;
   //query the database
-  const user = await prisma.owner.findMany({
+  const user = await prisma.owner.findUnique({
     where: {
-      AND: [{ email: email }, { password: password }],
+      // AND: [{ email: email }, { password: password }],
+      email: email,
     },
   });
+  const passwordMatch = await bcrypt.compare(password, user.password);
   console.log(user);
-  if (user) {
-    req.session.user = user[0];
+  if (passwordMatch) {
+    req.session.user = user;
     req.session.isLoggedIn = true;
     console.log(req.session);
     return req.session.save((err) => {
