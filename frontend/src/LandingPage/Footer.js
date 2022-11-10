@@ -47,7 +47,7 @@ const Footer = () => {
   });
   return (
     <div className="p-10 md:p-20 pt-5 bg-black text-white">
-      <div className="flex flex-col md:flex-row ">
+      <div className="flex flex-col lg:flex-row items-center justify-center">
         <div className="left flex flex-col justify-center items-center w-full md:w-2/5 my-10">
           <Banner />
           <span className="text-gray-400 mt-10">
@@ -62,7 +62,7 @@ const Footer = () => {
       </div>
       <div className=" bg-gray-500  mx-10 h-0.5 my-5"></div>
       <span className="py- text-gray-400 flex justify-center items-center">
-        Copyright © {getDate()} HooBank. All Rights Reserved.
+        Copyright © {getDate()} GharShar. All Rights Reserved.
       </span>
     </div>
   );
