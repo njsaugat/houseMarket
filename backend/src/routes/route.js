@@ -22,4 +22,20 @@ router.post('/owner', postOwner);
 
 router.post('/login', postLoginInfo);
 
+router.get('/register-property', (req, res) => {
+  console.log(req.session.isLoggedIn);
+  //for this req to be processed, user has to be 1st logged in
+  // if previously logged in then req.session.isLoggedIn is set to true;
+  // this req has to done after user logs in
+  if (req.session.isLoggedIn) {
+    res.json({
+      loggedIn: true,
+      userId: req.session.user.id,
+    });
+  } else {
+    res.json({ loggedIn: false });
+  }
+  console.log(req.session);
+});
+
 module.exports = router;
