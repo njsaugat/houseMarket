@@ -7,13 +7,14 @@ import Mid from './Mid';
 // import PrevNext from './PrevNext';
 import ProgressSteps from './ProgressSteps';
 import Axios from 'axios';
-
+import Loading from '../components/Loading';
 export const FormContext = createContext();
 const formItems = [<Intro />, <Mid />, <Final />];
 const RegisterProperty = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState(0);
 
+  const [userData, setUserData] = useState({});
   const [rentClicked, setRent] = useState(false);
   const [isFurnished, setIsFurnished] = useState(false);
   const [showImage, setShowImage] = useState(false);
@@ -21,6 +22,7 @@ const RegisterProperty = () => {
   const inputImageFile = useRef(null);
   // const [selectedImage, setSelectedImage] = useState(null);
   const [image, setImage] = useState({ preview: '', data: '' });
+  const [isLoading, setLoading] = useState(true);
   // const [name,setName]=useState('')
   const [formState, setState] = useState({
     name: '',
@@ -33,17 +35,37 @@ const RegisterProperty = () => {
     description: '',
     image: '',
   });
-  const [userId, setUserId] = useState('');
+  // const [userId, setUserId] = useState('');
 
   useEffect(() => {
-    const userID = localStorage.getItem('userId');
-    setUserId(userID);
-    console.log('user id is ' + userId);
+    // const userID = localStorage.getItem('userId');
+    // setUserId(userID);
+    // console.log('user id is ' + userId);
+    async function getUserData() {
+      const data = await fetch('/register-property');
+      const uData = await data.json();
+      console.log(uData);
+      setUserData(uData);
+      setLoading(false);
+      // return uData;
+    }
+
+    // setUserData(getUserData());
+    getUserData();
 
     // if (items) {
-    //  setItems(items);
+    //  setItems(items)
     // }
   }, []);
+
+  console.log(Object.keys(userData).length === 0);
+  if (isLoading) {
+    // return navigate('/loading');
+    return <Loading />;
+  }
+  if (!userData.loggedIn) {
+    return navigate('/login');
+  }
 
   function submit(e) {
     e.preventDefault();
@@ -61,7 +83,7 @@ const RegisterProperty = () => {
         ...formState,
         rent: rentClicked,
         furnished: isFurnished,
-        userId,
+        userId: userData.userId,
       },
     });
     Axios.post('/formdata', formData).then((res) => console.log(res));
