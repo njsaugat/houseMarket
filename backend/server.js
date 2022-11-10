@@ -8,6 +8,9 @@ const router = require('./src/routes/route');
 const PORT = process.env.PORT || 5000;
 const session = require('express-session');
 
+const { PrismaSessionStore } = require('@quixo3/prisma-session-store');
+const { PrismaClient } = require('@prisma/client');
+
 //middlewares
 app.use(
   cors({
@@ -24,6 +27,11 @@ app.use(express.json());
 //if sessionId present -> means old request-> attach the session+ sessionStore with this req
 app.use(
   session({
+    store: new PrismaSessionStore(new PrismaClient(), {
+      checkPeriod: 2 * 60 * 1000, //ms
+      dbRecordIdIsSessionId: true,
+      dbRecordIdFunction: undefined,
+    }),
     secret: 'keyboardcat',
     resave: false,
     saveUninitialized: true,
