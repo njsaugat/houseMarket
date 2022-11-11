@@ -3,12 +3,10 @@ import Banner from '../components/Banner';
 import Tagline from '../components/Tagline';
 import login from '../login.png';
 import Axios from 'axios';
-import validator, {
-  checkEmail,
-  checkPassword,
-  loginValidator,
-} from './validator';
+import { checkEmail, checkPassword, loginValidator } from './validator';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
+  const navigate = useNavigate();
   const email = useRef(null);
   const password = useRef(null);
   const [userId, setUserId] = useState('');
@@ -34,6 +32,10 @@ const Login = () => {
       // console.log(res.data);
     });
     //@TODO add promises to check whether the user is genuine or not based on response from server
+    navigate('/loading');
+    setTimeout(() => {
+      navigate('/explore');
+    }, 2000);
   };
   return (
     <div className=" flex flex-col md:flex-row  w-screen h-screen min-h-screen">
