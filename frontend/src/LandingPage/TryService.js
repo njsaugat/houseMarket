@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import housings from '../housings.png';
 
 const TryService = () => {
@@ -11,9 +12,11 @@ const TryService = () => {
           Find the right house over the wide rande of houses.
         </span>
         <br />
-        <button className="py-3 px-5 my-10 rounded-xl bg-gradient-to-t from-cyan-500 to-cyan-100   text-black">
-          Get Started
-        </button>
+        <Link to="/signup">
+          <button className="py-3 px-5 my-10 rounded-xl bg-gradient-to-t from-cyan-500 to-cyan-100   text-black">
+            Sign Up
+          </button>
+        </Link>
       </div>
       <div className="right absolute right-0 -bottom-10 w-1/2  ">
         <img
