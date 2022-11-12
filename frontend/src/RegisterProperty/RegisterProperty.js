@@ -74,6 +74,7 @@ const RegisterProperty = () => {
     formData.append('photo', image.data, image.data.name);
 
     console.log(image.data);
+    Axios.post('/formdata', formData).then((res) => console.log(res));
     Axios.post('/formdata', {
       method: 'POST',
       headers: {
@@ -86,12 +87,11 @@ const RegisterProperty = () => {
         userId: userData.userId,
       },
     });
-    Axios.post('/formdata', formData).then((res) => console.log(res));
 
-    navigate('/loading');
-    setTimeout(() => {
-      navigate('/');
-    }, 2000);
+    // navigate('/loading');
+    // setTimeout(() => {
+    //   navigate('/');
+    // }, 2000);
   }
   return (
     <FormContext.Provider
