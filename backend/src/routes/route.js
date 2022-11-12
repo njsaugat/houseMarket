@@ -2,7 +2,10 @@
 
 const express = require('express');
 const { postLoginInfo } = require('../controllers/loginController');
-const { postProperty } = require('../controllers/propertyController');
+const {
+  postProperty,
+  getProperty,
+} = require('../controllers/propertyController');
 const { postOwner } = require('../controllers/userController');
 const router = express.Router();
 // const postProperty=
@@ -21,6 +24,8 @@ router.post('/formdata', postProperty);
 router.post('/owner', postOwner);
 
 router.post('/login', postLoginInfo);
+
+router.get('/properties', getProperty);
 
 router.get('/register-property', (req, res) => {
   console.log(req.session.isLoggedIn);
