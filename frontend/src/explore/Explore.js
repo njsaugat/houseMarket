@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import house from '../house.png';
 
 const Explore = () => {
-  // const [properties, setProperties]=useState([{}])
-  // useEffect(()=>{
-  //     async function getProperties(){
-  //         const data=await fetch('/properties');
-  //         const propertiesData=await data.json();
-  //         setProperties(propertiesData)
-  //     }
-  //     getProperties()
-
-  // },[])
+  const [properties, setProperties] = useState([{}]);
+  useEffect(() => {
+    async function getProperties() {
+      const data = await fetch('/properties');
+      const propertiesData = await data.json();
+      console.log(propertiesData);
+      setProperties(propertiesData);
+    }
+    getProperties();
+  }, []);
 
   return (
     <div className="properties w-screen h-screen bg-slate-100 flex flex-col  items-center transition-all">
