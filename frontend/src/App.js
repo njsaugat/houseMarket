@@ -6,6 +6,7 @@ import Login from './Login-signup/Login';
 import RegisterProperty from './RegisterProperty/RegisterProperty';
 import Loading from './components/Loading';
 import Explore from './explore/Explore';
+import ShowProperty from './explore/ShowProperty';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/register-property" element={<RegisterProperty />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/explore/property" element={<ShowProperty />} />
       </Routes>
     </div>
   );
