@@ -19,7 +19,10 @@ app.use(
   })
 );
 
-app.use(express.static('./public'));
+// app.use(express.static(pathphoto-1668155366772.png.join(__dirname, 'public', 'images')));
+// console.log(path.join(__dirname, 'public', 'images'));
+// app.use(express.static('package.json'));
+app.use(express.static('public/images'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
