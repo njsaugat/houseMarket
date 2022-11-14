@@ -102,16 +102,38 @@ async function findUser(userId) {
 }
 
 exports.getProperty = async (req, res) => {
-  const properties = await prisma.property.findMany();
-
-  const allProperties = properties.map(async (property) => {
-    const image = await prisma.image.findUnique({
-      where: {
-        propertyId: property.id,
-      },
-    });
-    return { ...property, imageUrl: image.imageUrl };
+  const properties = await prisma.property.findMany({
+    include: {
+      images: true,
+    },
   });
 
+  // const allProperties =
+  //   await prisma.$queryRaw` SELECT "Property".id,name,location,description,furnished,price,propertyType,livingRoom,bathRoom,bedRoom,ownerId, "Image".imageUrl FROM "Property"  JOIN "Image"  ON "Property".id="Image".propertyId`;
+  // console.log(allProperties);
+
+  // const images = await prisma.$queryRaw`SELECT * FROM images`;
+
+  const allProperties = properties.map((property) => {
+    // const imageUrls=property.images.map(image=>{
+    //   return image.imageUrl
+    // })
+    // return {...property,imageUrls}
+    const { imageUrl } = property.images[0]; //if many images loop over property.images to get all of them
+    delete property.images; //not sending the images data; not required
+    return { ...property, imageUrl };
+  });
+  console.log(allProperties);
+  // const allProperties = properties.map(async (property) => {
+  //   const image = await prisma.image.findUnique({
+  //     where: {
+  //       propertyId: property.id,
+  //     },
+  //   });
+  //   return { ...property, imageUrl: image.imageUrl };
+  // });
+
+  // res.send(allProperties);
   res.send(allProperties);
+  // return properties;
 };
