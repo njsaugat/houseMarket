@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Tagline from '../components/Tagline';
 import house from '../house.png';
 const Hero = () => {
@@ -11,9 +12,11 @@ const Hero = () => {
           most likely to fit your needs. We examine annual percentage rates,
           annual fees.
         </section>
-        <button className="py-3 px-5 my-10 bg-gradient-to-t from-cyan-500 to-cyan-100  rounded-lg text-black">
-          Explore Now
-        </button>
+        <Link to="/explore">
+          <button className="py-3 px-5 my-10 bg-gradient-to-t from-cyan-500 to-cyan-100  rounded-lg text-black">
+            Explore Now
+          </button>
+        </Link>
       </div>
 
       <div className="md:w-1/2">
