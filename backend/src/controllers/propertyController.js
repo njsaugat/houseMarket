@@ -11,29 +11,6 @@ let imagePath;
 // so we have to make the imagePath also to be in array so that we could retrieve them
 exports.postProperty = async (req, res) => {
   console.log(req.body);
-  // const data = req.body.body;
-  // const {
-  //   name,
-  //   // address,
-  //   // description,
-  //   // furnished,
-  //   // price,
-  //   // rent,
-  //   // livingRooms,
-  //   // bathrooms,
-  //   // bedrooms,
-  // } = data;
-  // const title = req.body.body.name;
-  // const address = req.body.body.address;
-  // const description = req.body.body.description;
-  // const furnished = req.body.body.furnished;
-  // const price = req.body.body.price;
-  // const rent = req.body.body.rent;
-  // const livingRooms = req.body.body.livingRooms;
-  // const bathrooms = req.body.body.bathrooms;
-  // const bedrooms = req.body.body.bedrooms;
-
-  // console.log(name);
 
   if (!req.file) {
     console.log('No file upload');
@@ -94,25 +71,13 @@ exports.postProperty = async (req, res) => {
   }
 };
 
-async function findUser(userId) {
-  const user = await prisma.owner.findMany({
-    where: { id: userId },
-  });
-  return user[0];
-}
-
 exports.getProperty = async (req, res) => {
   const properties = await prisma.property.findMany({
     include: {
       images: true,
+      owner: true,
     },
   });
-
-  // const allProperties =
-  //   await prisma.$queryRaw` SELECT "Property".id,name,location,description,furnished,price,propertyType,livingRoom,bathRoom,bedRoom,ownerId, "Image".imageUrl FROM "Property"  JOIN "Image"  ON "Property".id="Image".propertyId`;
-  // console.log(allProperties);
-
-  // const images = await prisma.$queryRaw`SELECT * FROM images`;
 
   const allProperties = properties.map((property) => {
     // const imageUrls=property.images.map(image=>{
@@ -124,14 +89,6 @@ exports.getProperty = async (req, res) => {
     return { ...property, imageUrl };
   });
   console.log(allProperties);
-  // const allProperties = properties.map(async (property) => {
-  //   const image = await prisma.image.findUnique({
-  //     where: {
-  //       propertyId: property.id,
-  //     },
-  //   });
-  //   return { ...property, imageUrl: image.imageUrl };
-  // });
 
   // res.send(allProperties);
   res.send(allProperties);
