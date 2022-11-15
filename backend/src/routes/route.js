@@ -6,7 +6,7 @@ const {
   postProperty,
   getProperty,
 } = require('../controllers/propertyController');
-const { postOwner } = require('../controllers/userController');
+const { postOwner, getUser } = require('../controllers/userController');
 const router = express.Router();
 // const postProperty=
 // Home page route.
@@ -26,6 +26,8 @@ router.post('/owner', postOwner);
 router.post('/login', postLoginInfo);
 
 router.get('/properties', getProperty);
+
+router.get('/user/:id', getUser);
 
 router.get('/register-property', (req, res) => {
   console.log(req.session.isLoggedIn);
