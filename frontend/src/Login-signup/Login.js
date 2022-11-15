@@ -7,6 +7,7 @@ import { checkEmail, checkPassword, loginValidator } from './validator';
 import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const navigate = useNavigate();
+  document.title = 'GharShar | Login';
   const email = useRef(null);
   const password = useRef(null);
   const [userId, setUserId] = useState('');
