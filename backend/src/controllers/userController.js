@@ -17,3 +17,13 @@ exports.postOwner = async (req, res) => {
     },
   });
 };
+
+exports.getUser = async (req, res) => {
+  const userId = req.params.id;
+  const user = await prisma.owner.findUnique({
+    where: {
+      id: userId,
+    },
+  });
+  res.send(user);
+};
