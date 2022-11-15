@@ -22,6 +22,8 @@ const getArrayofPages = (totalPages) => {
 };
 
 const Explore = () => {
+  document.title = 'GharShar | Explore';
+
   const [properties, setProperties] = useState([{}]);
   const [isLoading, setLoading] = useState(true);
 
@@ -55,17 +57,19 @@ const Explore = () => {
   return (
     <>
       <Navbar />
-      <div className="properties w-screen h-screen bg-slate-100 flex flex-col  items-center transition-all">
+      <div className="properties w-screen h-screen bg-slate-100 flex flex-col  items-center transition-all ">
         {properties.map((property, index) => {
           return (
             returnIndexRange(index) && (
-              <div
-                className="property flex  bg-slate-50 m-5 p-8 gap-4 w-11/12 md:w-3/5 lg:w-2/5 rounded-xl shadow-lg hover:shadow-xl hover:bg-white transition-shadow  duration-300 "
+              <Link
+                className="property flex  bg-slate-50 m-5 p-8 gap-4 w-11/12 md:w-3/5 lg:w-2/5 rounded-xl shadow-lg hover:shadow-xl hover:bg-white   transition-shadow   duration-300 "
                 key={property.id}
+                to={`/explore/property/${property.id}`}
+                state={property}
               >
                 <div className="image w-1/3">
                   <img
-                    className="rounded-3xl object-cover opacity-95  w-full h-full  "
+                    className="rounded-3xl object-cover opacity-95 hover:scale-105 transition-transform w-full h-full  "
                     src={
                       'http://127.0.0.1:5000/' +
                       property.imageUrl.substring(
@@ -98,7 +102,7 @@ const Explore = () => {
                   <hr className="my-3" />
                   <div className="owner mt-2">{property.location}</div>
                 </div>
-              </div>
+              </Link>
             )
           );
         })}
