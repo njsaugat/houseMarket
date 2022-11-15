@@ -12,6 +12,7 @@ import validator, {
 import { checkUsername } from './validator';
 const Signup = () => {
   const navigate = useNavigate();
+  document.title = 'GharShar | Signup';
 
   const username = useRef(null);
   const email = useRef(null);
