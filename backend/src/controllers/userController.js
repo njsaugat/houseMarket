@@ -24,6 +24,40 @@ exports.getUser = async (req, res) => {
     where: {
       id: userId,
     },
+    // include: {
+    //   // properties: true,
+    //   // images: true,
+    // },
   });
-  res.send(user);
+
+  const properties = await prisma.property.findMany({
+    where: {
+      ownerId: user.id,
+    },
+    include: {
+      images: true,
+      // owner: true,
+    },
+  });
+  const allProperties = properties.map((property) => {
+    // const imageUrls=property.images.map(image=>{
+    //   return image.imageUrl
+    // })
+    // return {...property,imageUrls}
+    const { imageUrl } = property.images[0]; //if many images loop over property.images to get all of them
+    delete property.images; //not sending the images data; not required
+    return { ...property, imageUrl };
+  });
+
+  // const allProperties = user.properties.map((property) => {
+  //   // const imageUrls=property.images.map(image=>{
+  //   //   return image.imageUrl
+  //   // })
+  //   // return {...property,imageUrls}
+  //   const { imageUrl } = property.images[0]; //if many images loop over property.images to get all of them
+  //   delete property.images; //not sending the images data; not required
+  //   return { ...user, imageUrl };
+  // });
+
+  res.send({ ...user, properties: allProperties });
 };
