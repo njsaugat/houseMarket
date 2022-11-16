@@ -3,23 +3,33 @@ import Navbar from '../LandingPage/Navbar';
 import house from '../house.png';
 import { Link, useLocation } from 'react-router-dom';
 import Footer from '../LandingPage/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+const viewsIcon = <FontAwesomeIcon icon={faEye} />;
+
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+function getRandomNumber() {
+  return Math.floor(Math.random() * 100);
 }
 
 const ShowProperty = () => {
   const { state } = useLocation();
   const property = state;
+  console.log(property);
   document.title =
     property.name.charAt(0).toUpperCase() + property.name.slice(1);
   console.log(property);
   const { location, furnished, bedRoom, livingRoom, bathRoom } = property;
+  const email = property.owner.email;
   const propertyAttributes = {
     location,
     furnished: furnished === true ? 'Yes' : 'No',
     bedRoom,
     livingRoom,
     bathRoom,
+    email,
   };
 
   const RenderPropertyAttributes = () => {
@@ -39,10 +49,10 @@ const ShowProperty = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col md:flex-row w-screen md:h-screen  bg-slate-50   ">
+      <div className=" bg-gradient-to-t from-slate-50 to-cyan-50 flex flex-col md:flex-row w-screen md:h-screen  bg-slate-50   ">
         <div className="left m-5 w-full md:w-1/3   mb-10 md:mb-1 flex flex-col ">
           <img
-            className="w-screen md:w-full hover:scale-105 transition-transform"
+            className="w-screen md:w-full hover:scale-105 transition-transform "
             src={
               'http://127.0.0.1:5000/' +
               property.imageUrl.substring(property.imageUrl.indexOf('photo'))
@@ -50,12 +60,26 @@ const ShowProperty = () => {
             alt="property"
             loading="lazy"
           />
-          {/* <div className="price  font-bold text-l flex justify-between items-center">
-            <span className="">Price</span>
-          </div> */}
+          <div className="  text-l flex flex-col gap-y-5 justify-between items-center">
+            <Link to={`/user/${property.owner.id}`} state={property.owner}>
+              <div className="nameGenerator w-16 h-16 rounded-full bg-gradient-to-t from-sky-400 to-cyan-100 capitalize  flex items-center justify-center">
+                <span className="text-5xl text-white">
+                  {property.owner.name.charAt(0)}
+                </span>
+              </div>
+            </Link>
+            <Link to={`/user/${property.owner.id}`} state={property.owner}>
+              <span className="text-xl font-bold transition-all duration-300 hover:scale-105">
+                {property.owner.name}
+              </span>
+            </Link>
+            <span className="tracking-wide">
+              {viewsIcon} {getRandomNumber()} views
+            </span>
+          </div>
         </div>
 
-        <div className="right  w-full md:w-2/3 flex flex-col  mb-20">
+        <div className="right  w-full md:w-2/3 flex flex-col  mb-20 md:mb-0">
           <h1 className="font-bold mx-5 text-2xl md:text-3xl my-10 tracking-wide capitalize">
             {property.name}
           </h1>
@@ -65,12 +89,20 @@ const ShowProperty = () => {
           <p className="description mx-5">{property.description}</p>
 
           <RenderPropertyAttributes />
-          <div className="py-2 px-5 my-10 mx-5 flex justify-center items-center w-32 rounded-lg bg-gradient-to-t from-sky-400 to-cyan-100  tracking-wide text-black shadow-lg ">
-            For {property.propertyType === 'Rent' ? 'Rent' : 'Sale'}
+          <div className="mx-5 md:w-1/2 md:mt-5 flex flex-col mb-10 md:mb-16 items-center justify-center">
+            <div className="py-2 px-5 mt-10 mx-5 flex justify-center items-center w-36 rounded-lg bg-gradient-to-t from-slate-200 to-cyan-100  tracking-wide text-black shadow-lg text-2xl ">
+              For {property.propertyType === 'Rent' ? 'Rent' : 'Sale'}
+            </div>
+            <div className="h-16  w-3 bg-gradient-to-b from-slate-200 to-cyan-100 shadow-lg"></div>
+            <div className="w-1/2 h-1 bg-slate-400"></div>
           </div>
           <div className="mx-5">
-            <span>Posted By </span>
-            <Link to={`/user/${property.owner.id}`} state={property.owner}>
+            {/* find other properties posted by Pouded */}
+            <span className="">Find other properties posted by </span>
+            <Link
+              className="font-bold hover:tracking-wide "
+              to={`/user/${property.owner.id}`}
+            >
               {property.owner.name}
             </Link>
           </div>
