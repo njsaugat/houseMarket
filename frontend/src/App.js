@@ -8,6 +8,7 @@ import Loading from './components/Loading';
 import Explore from './explore/Explore';
 import ShowProperty from './explore/ShowProperty';
 import ShowUser from './user/ShowUser';
+import UserProperty from './user/UserProperty';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/explore/property/:id" element={<ShowProperty />} />
         <Route path="/user/:id" element={<ShowUser />} />
+        <Route path="/user/:id/properties" element={<UserProperty />} />
       </Routes>
     </div>
   );
