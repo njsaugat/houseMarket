@@ -11,6 +11,8 @@ import Loading from '../components/Loading';
 export const FormContext = createContext();
 const formItems = [<Intro />, <Mid />, <Final />];
 const RegisterProperty = () => {
+  document.title = 'GharShar | Register Property';
+
   const navigate = useNavigate();
   const [step, setStep] = useState(0);
 
@@ -88,10 +90,10 @@ const RegisterProperty = () => {
       },
     });
 
-    // navigate('/loading');
-    // setTimeout(() => {
-    //   navigate('/');
-    // }, 2000);
+    navigate('/loading');
+    setTimeout(() => {
+      navigate('/');
+    }, 2000);
   }
   return (
     <FormContext.Provider
