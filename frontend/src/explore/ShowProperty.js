@@ -62,14 +62,14 @@ const ShowProperty = () => {
           />
           <div className="  text-l flex flex-col gap-y-5 justify-between items-center">
             <Link to={`/user/${property.owner.id}`} state={property.owner}>
-              <div className="nameGenerator w-16 h-16 rounded-full bg-gradient-to-t from-sky-400 to-cyan-100 capitalize  flex items-center justify-center">
+              <div className="nameGenerator w-16 h-16 rounded-full bg-gradient-to-t from-sky-400 to-cyan-100 capitalize  flex items-center justify-center hover:shadow-xl hover:scale-105 transition-all duration-300">
                 <span className="text-5xl text-white">
                   {property.owner.name.charAt(0)}
                 </span>
               </div>
             </Link>
             <Link to={`/user/${property.owner.id}`} state={property.owner}>
-              <span className="text-xl font-bold transition-all duration-300 hover:scale-105">
+              <span className="text-xl font-bold   hover:scale-105 transition-all duration-300">
                 {property.owner.name}
               </span>
             </Link>
