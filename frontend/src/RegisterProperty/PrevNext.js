@@ -1,6 +1,6 @@
 import React from 'react';
 import { progressSteps } from './progressStepsArr';
-const buttonProperty = `py-2 px-5 my-10 rounded-lg bg-gradient-to-t from-sky-400 to-cyan-100  tracking-wide text-black shadow-lg`;
+const buttonProperty = `py-2 px-5 my-10 rounded-lg bg-gradient-to-t from-sky-400 to-cyan-100  tracking-wide text-black shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300`;
 
 const PrevNext = ({ step, setStep }) => {
   return (
