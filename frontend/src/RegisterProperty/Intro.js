@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FormContext } from './RegisterProperty';
 import PrevNext from './PrevNext';
-const buttonProperty = 'px-3 py-1  w-1/2 transition-all ease-out';
-const selectedProperty = `${buttonProperty} bg-gradient-to-t from-sky-400 to-cyan-100 font-bold tracking-wider `;
+const buttonProperty = 'px-3 py-1  w-1/2 transition-all ease-out ';
+const selectedProperty = `${buttonProperty} bg-gradient-to-t from-sky-400 to-cyan-100 font-bold tracking-wider hover:shadow-xl hover:scale-105 transition-all duration-300`;
 
 const plusIcon = <FontAwesomeIcon icon={faPlus} />;
 
