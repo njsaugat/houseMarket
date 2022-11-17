@@ -5,6 +5,8 @@ const { postLoginInfo } = require('../controllers/loginController');
 const {
   postProperty,
   getProperty,
+  putProperty,
+  deleteProperty,
 } = require('../controllers/propertyController');
 const { postOwner, getUser } = require('../controllers/userController');
 const router = express.Router();
@@ -21,11 +23,15 @@ const router = express.Router();
 
 router.post('/formdata', postProperty);
 
+router.put('/formdata', putProperty);
+
 router.post('/owner', postOwner);
 
 router.post('/login', postLoginInfo);
 
 router.get('/properties', getProperty);
+
+router.delete('/property/:id', deleteProperty);
 
 router.get('/user/:id', getUser);
 
