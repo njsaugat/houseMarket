@@ -15,6 +15,9 @@ body {
 #portal.active {
   opacity: 1;
 }
+/* #root + #portal2 {
+  overflow-y: hidden;
+} */
 /* .navs.inactive {
   opacity: 0;
   transition: 0.5s ease-in;
