@@ -8,7 +8,7 @@ import LinkProperty from '../components/LinkProperty';
 import Footer from '../LandingPage/Footer';
 
 const LETTERS_MAX_LENGTH = 100;
-const buttonProperty = `py-2 px-5 my-10 rounded-lg bg-gradient-to-t from-sky-400 to-cyan-100  tracking-wide text-black shadow-lg cursor-pointer`;
+const buttonProperty = `py-2 px-5 my-10 rounded-lg bg-gradient-to-t from-sky-400 to-cyan-100  tracking-wide text-black shadow-lg cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300`;
 
 const PROPERTIES_PER_PAGE = 1;
 
