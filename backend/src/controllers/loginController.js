@@ -28,3 +28,17 @@ exports.postLoginInfo = async (req, res) => {
   // res.send(user[0].id);
   // mns;
 };
+
+exports.logout = (req, res) => {
+  console.log(req.session);
+  if (req.session) {
+    // more of such error handling
+    req.session.destroy((err) => {
+      if (err) {
+        res.status(400).send('Unable to log out');
+      } else {
+        res.send('Logout successful');
+      }
+    });
+  }
+};
