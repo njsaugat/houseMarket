@@ -19,17 +19,21 @@ exports.postOwner = async (req, res) => {
 };
 
 exports.getUser = async (req, res) => {
-  const userId = req.params.id;
-  const user = await prisma.owner.findUnique({
-    where: {
-      id: userId,
-    },
-    // include: {
-    //   // properties: true,
-    //   // images: true,
-    // },
-  });
-
+  let user;
+  if (!req.session.user) {
+    const userId = req.params.id;
+    user = await prisma.owner.findUnique({
+      where: {
+        id: userId,
+      },
+      // include: {
+      //   // properties: true,
+      //   // images: true,
+      // },
+    });
+  } else {
+    user = req.session.user;
+  }
   const properties = await prisma.property.findMany({
     where: {
       ownerId: user.id,
@@ -60,4 +64,25 @@ exports.getUser = async (req, res) => {
   // });
 
   res.send({ ...user, properties: allProperties });
+};
+
+exports.getUserPropeties = async (req, res) => {
+  console.log(req.session.user.id);
+  const userId = req.session.user.id;
+  // this.getUser()
+  const properties = await prisma.property.findMany({
+    where: {
+      ownerId: userId,
+    },
+    include: {
+      images: true,
+      // owner: true,
+    },
+  });
+  const allProperties = properties.map((property) => {
+    const { imageUrl } = property.images[0];
+    delete property.images;
+    return { ...property, imageUrl };
+  });
+  res.send({ ...req.session.user, properties: allProperties });
 };
