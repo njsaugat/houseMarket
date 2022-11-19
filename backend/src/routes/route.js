@@ -1,14 +1,19 @@
 // wiki.js - Wiki route module.
 
 const express = require('express');
-const { postLoginInfo } = require('../controllers/loginController');
+const { isAuthenticated } = require('../controllers/authController');
+const { postLoginInfo, logout } = require('../controllers/loginController');
 const {
   postProperty,
   getProperty,
   putProperty,
   deleteProperty,
 } = require('../controllers/propertyController');
-const { postOwner, getUser } = require('../controllers/userController');
+const {
+  postOwner,
+  getUser,
+  getUserPropeties,
+} = require('../controllers/userController');
 const router = express.Router();
 // const postProperty=
 // Home page route.
@@ -33,7 +38,13 @@ router.get('/properties', getProperty);
 
 router.delete('/property/:id', deleteProperty);
 
+router.get('/user/properties', getUserPropeties);
+
 router.get('/user/:id', getUser);
+
+router.post('/logout', logout);
+
+router.get('/isAuthenticated', isAuthenticated);
 
 router.get('/register-property', (req, res) => {
   console.log(req.session.isLoggedIn);
