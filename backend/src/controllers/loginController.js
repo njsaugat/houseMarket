@@ -16,6 +16,7 @@ exports.postLoginInfo = async (req, res) => {
     req.session.user = user;
     req.session.isLoggedIn = true;
     console.log(req.session);
+    res.send({ loggedIn: true });
     return req.session.save((err) => {
       //making sure we save to db and then redirect ie making it async
       if (err) {
@@ -23,6 +24,8 @@ exports.postLoginInfo = async (req, res) => {
       }
       // res.redirect('/')
     });
+  } else {
+    res.send({ loggedIn: false });
   }
   // console.log(user[0].id);
   // res.send(user[0].id);
