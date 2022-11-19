@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { createPortal } from 'react-dom';
 import { Axios } from 'axios';
-const crossIcon = <FontAwesomeIcon icon={faXmark} />;
+import ShowPortal from './ShowPortal';
+// const crossIcon = <FontAwesomeIcon icon={faXmark} />;
 const DESCRIPTION_MAX_LENGTH = 100;
 const buttonProperty = `py-2 px-5  rounded-lg bg-gradient-to-t from-sky-400 to-cyan-100  tracking-wide text-black shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300`;
 
@@ -12,82 +11,16 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-const ShowUpdateDelete = ({
-  showOptions,
-  setShowOptions,
-  setOverflow,
-  property,
-}) => {
-  if (!showOptions) {
-    return null;
-  }
-  return createPortal(
-    <div
-      onClick={(e) => {
-        e.preventDefault();
-        setShowOptions(false);
-      }}
-      className={`fixed font-poppins top-0 left-0 right-0 bottom-0 opacity-90 z-100 bg-gray-600 ${
-        showOptions === true ? 'active' : 'inactive'
-      }`}
-    >
-      <div
-        className="z-100 bg-white fixed top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 
-    w-4/5 md:w-1/2 lg:w-1/4 rounded-xl   p-5 "
-      >
-        <div className="flex justify-between items-center w-full relative">
-          <h1 className="flex justify-center items-center">
-            Do you want to delete this property?
-          </h1>
-          <div
-            onClick={(e) => {
-              e.preventDefault();
-              setShowOptions(false);
-            }}
-            className="cursor-pointer text-red-600 text-3xl "
-          >
-            {crossIcon}
-          </div>
-        </div>
-        <div className="flex w-full mt-4 ">
-          <div
-            onClick={(e) => {
-              e.preventDefault();
-              setShowOptions(false);
-            }}
-            className=" cursor-pointer w-1/2 border-r-2 flex justify-center items-center p-2"
-          >
-            Cancel
-          </div>
-          <div
-            onClick={(e) => {
-              // send Axios delete request
-              Axios.delete(`/property/${property.id}`, {
-                method: 'DELETE',
-              });
-              // remove from current listing as well
-            }}
-            className=" p-2 tracking-widest cursor-pointer w-1/2 bg-gradient-to-t from-red-600 to-red-400 flex justify-center items-center"
-          >
-            OK
-          </div>
-        </div>
-      </div>
-    </div>,
-    document.getElementById('portal2')
-  );
-};
-
 const LinkProperty = ({ property, smallDisplay, validUser, user }) => {
   const [showOptions, setShowOptions] = useState(false);
-  const [overflow, setOverflow] = useState(false);
-  useEffect(() => {
-    if (overflow) {
-      document.getElementById('root').style.overflow = 'hidden';
-    } else {
-      document.getElementById('root').style.overflow = 'auto';
-    }
-  }, [overflow]);
+  // const [overflow, setOverflow] = useState(false);
+  // useEffect(() => {
+  //   if (overflow) {
+  //     document.getElementById('root').style.overflowX = 'hidden';
+  //   } else {
+  //     document.getElementById('root').style.overflowX = 'hiddenx';
+  //   }
+  // }, [overflow]);
   // useEffect(()=>{
   //   const removeTheOptions=()=>setShowOptions(false);
   //   window.addEventListener('click',removeTheOptions)
@@ -161,19 +94,19 @@ const LinkProperty = ({ property, smallDisplay, validUser, user }) => {
               // setOverflow(true)
               // document.getElementById('root').style.overflow = 'hidden';
               // console.log(document.body.getElementById('root'));
-              console.log(document.getElementById('root').style.overflow);
             }}
             className={`${buttonProperty} bg-gradient-to-t from-red-400 to-red-200 cursor-pointer`}
           >
             Delete
           </div>
           {showOptions && (
-            <ShowUpdateDelete
+            <ShowPortal
               showOptions={showOptions}
               // closeModal={() => setShowOptions(false)}
               setShowOptions={setShowOptions}
-              setOverflow={setOverflow}
+              // setOverflow={setOverflow}
               property={property}
+              message={'Do you want to delete this property?'}
             />
           )}
         </div>
