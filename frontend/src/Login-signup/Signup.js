@@ -3,7 +3,7 @@ import Banner from '../components/Banner';
 import Tagline from '../components/Tagline';
 import loginHouse from '../loginHouse.png';
 import Axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import validator, {
   checkConfPassword,
   checkEmail,
@@ -162,7 +162,13 @@ const Signup = () => {
           >
             Sign Up
           </button>
-          <p className="mt-4">Already a member? Sign In</p>
+          <p className="mt-4">
+            Already a member?
+            <Link to={'/login'} className="font-bold ">
+              {' '}
+              Log In
+            </Link>
+          </p>
         </form>
       </div>
     </div>
