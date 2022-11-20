@@ -8,18 +8,54 @@ const getDate = () => {
 const usefulLinks = [
   {
     id: 1,
-    name: 'Useful Link',
-    links: ['Content', 'How', 'Create', 'Explore', 'Teams'],
+    name: 'Useful Links',
+    links: [
+      {
+        title: 'Stackoverflow',
+        url: 'https://stackoverflow.com/',
+      },
+      {
+        title: 'Fontawesome',
+        url: 'https://fontawesome.com/',
+      },
+      {
+        title: 'Dev.to',
+        url: 'https://dev.to/',
+      },
+      {
+        title: 'Medium',
+        url: 'https://medium.com/',
+      },
+    ],
   },
   {
     id: 2,
-    name: 'Community',
-    links: ['Help Center', 'Partners', 'Suggestions', 'Blog', 'Newsletters'],
+    name: 'Socials',
+    links: [
+      { title: 'Github', url: 'https://github.com/njsaugat' },
+      {
+        title: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/saugat-poudel-08b1241a0/',
+      },
+      {
+        title: 'Twitter',
+        url: 'https://twitter.com/njsaugat',
+      },
+    ],
   },
   {
     id: 3,
-    name: 'Partner',
-    links: ['Our Partner', 'Become a partner'],
+    name: 'Collab',
+    links: [
+      {
+        title: 'Codespaces',
+        url: 'https://github.com/features/codespaces',
+      },
+      {
+        title: 'Docs',
+        url: 'https://www.google.com/docs/about/',
+      },
+    ],
   },
 ];
 const Footer = () => {
@@ -33,12 +69,12 @@ const Footer = () => {
           return (
             <a
               className="no-underline my-1"
-              href="h"
+              href={link.url}
               key={index}
-              xtarget="_blank"
+              target="_blank"
               rel="noreferrer"
             >
-              {link}
+              {link.title}
             </a>
           );
         })}
@@ -62,7 +98,7 @@ const Footer = () => {
       </div>
       <div className=" bg-gray-500  mx-10 h-0.5 my-5"></div>
       <span className="py- text-gray-400 flex justify-center items-center">
-        Copyright © {getDate()} GharShar. All Rights Reserved.
+        Copyright © {getDate()} GharShar. All Rights Reserved. © Saugat Poudel
       </span>
     </div>
   );
