@@ -1,20 +1,22 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import Banner from '../components/Banner';
 import Tagline from '../components/Tagline';
 import login from '../login.png';
 import Axios from 'axios';
 import { checkEmail, checkPassword, loginValidator } from './validator';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { LoggedInContext } from '../App';
 const Login = () => {
   const navigate = useNavigate();
   document.title = 'GharShar | Login';
   const email = useRef(null);
   const password = useRef(null);
-  const [userId, setUserId] = useState('');
+  const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
+  // const [userId, setUserId] = useState('');
 
-  useEffect(() => {
-    localStorage.setItem('userId', userId);
-  }, [userId]);
+  // useEffect(() => {
+  //   localStorage.setItem('userId', userId);
+  // }, [userId]);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -22,14 +24,21 @@ const Login = () => {
     Axios.post('/login', {
       method: 'POST',
       headers: {
-        'Content-Type': 'mutlipart/form-userId',
+        'Content-Type': 'mutlipart/form-data',
       },
       body: {
         email: email.current.value,
         password: password.current.value,
       },
     }).then((res) => {
-      setUserId(res.data);
+      // setUserId(res.data);
+      if (res.data.loggedIn) {
+        //login success
+        setLoggedIn(true);
+      } else {
+        //show error
+        alert("Email or password doesn' match");
+      }
       // console.log(res.data);
     });
     //@TODO add promises to check whether the user is genuine or not based on response from server
@@ -102,7 +111,13 @@ const Login = () => {
           >
             Sign In
           </button>
-          <p className="mt-4">Not a member? Sign Up</p>
+          <p className="mt-4">
+            Not a member?
+            <Link to={'/signup'} className="font-bold ">
+              {' '}
+              Sign Up
+            </Link>
+          </p>
         </form>
       </div>
     </div>
