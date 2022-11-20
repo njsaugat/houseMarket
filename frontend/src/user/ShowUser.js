@@ -35,10 +35,12 @@ const ShowUser = () => {
       <Navbar />
       <div className="w-screen  bg-gradient-to-t from-slate-300 to-slate-50 flex flex-col md:flex-row">
         <div className="left m-5 w-full md:w-1/3   mb-10 md:mb-1 flex flex-col  items-center ">
-          <div className="nameGenerator w-32 h-32 rounded-full bg-gradient-to-t from-sky-400 to-cyan-100 capitalize  flex items-center justify-center">
-            <span className="text-7xl text-white">{user.name.charAt(0)}</span>
+          <div className="nameGenerator w-32 h-32 rounded-full bg-gradient-to-t from-sky-400 to-cyan-100 capitalize  flex items-center justify-center hover:shadow-xl hover:scale-105 transition-all duration-300">
+            <span className="text-7xl text-white mt-2">
+              {user.name.charAt(0)}
+            </span>
           </div>
-          <h1 className="font-bold mx-5 text-2xl md:text-3xl my-10 tracking-wide capitalize">
+          <h1 className="font-bold mx-5 text-2xl md:text-3xl my-10 tracking-wide capitalize  hover:scale-105 transition-all duration-300">
             {user.name}
           </h1>
           <span className="price  font-bold text-xl mx-5 mb-5 tracking-wide">
