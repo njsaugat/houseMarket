@@ -8,6 +8,7 @@ const {
   getProperty,
   putProperty,
   deleteProperty,
+  getPropertyOnly,
 } = require('../controllers/propertyController');
 const {
   postOwner,
@@ -35,6 +36,8 @@ router.post('/owner', postOwner);
 router.post('/login', postLoginInfo);
 
 router.get('/properties', getProperty);
+
+router.get('/property/:id', getPropertyOnly);
 
 router.delete('/property/:id', deleteProperty);
 
