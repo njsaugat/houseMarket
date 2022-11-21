@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @import url('kinetic.css');
+@import url('animatedNav.css');
+
 body {
   overflow-x: hidden;
 }
@@ -10,7 +12,7 @@ body {
 }
 #portal {
   opacity: 0;
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 #portal.active {
   opacity: 1;
