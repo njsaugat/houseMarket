@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import LinkProperty from '../components/LinkProperty';
 import Loading from '../components/Loading';
 import Footer from '../LandingPage/Footer';
@@ -11,17 +11,23 @@ const ShowUser = () => {
   const [user, setUser] = useState([{}]);
   const [loading, setLoading] = useState(true);
   const params = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     async function getUser() {
-      console.log('/user/' + params.id);
-      const data = await fetch('/user/' + params.id);
-      const userData = await data.json();
-      setUser(userData);
-      setLoading(false);
+      // console.log('/user/' + params.id);
+      // const data = await fetch('/user/' + params.id);
+      try {
+        const data = await fetch('/user/properties');
+        const userData = await data.json();
+        setUser(userData);
+        setLoading(false);
+      } catch {
+        navigate('/login');
+      }
     }
 
     getUser();
-  }, [params.id]);
+  }, [navigate]);
   console.log(user);
   if (loading) {
     return <Loading />;
