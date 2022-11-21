@@ -15,6 +15,8 @@ exports.postProperty = async (req, res) => {
 
   if (!req.file) {
     console.log('No file upload');
+    console.log(req.session.user);
+
     const {
       name,
       address,
@@ -79,6 +81,7 @@ exports.getProperty = async (req, res) => {
     },
   });
 
+  console.log(properties);
   const allProperties = properties.map((property) => {
     // const imageUrls=property.images.map(image=>{
     //   return image.imageUrl
@@ -93,6 +96,23 @@ exports.getProperty = async (req, res) => {
   // res.send(allProperties);
   res.send(allProperties);
   // return properties;
+};
+
+exports.getPropertyOnly = async (req, res) => {
+  const propertyId = req.params.id;
+  console.log(propertyId);
+  const property = await prisma.property.findUnique({
+    where: {
+      id: propertyId,
+    },
+    include: {
+      images: true,
+      owner: true,
+    },
+  });
+  const { imageUrl } = property.images[0]; //if many images loop over property.images to get all of them
+  delete property.images; //not sending the images data; not required
+  res.send({ ...property, imageUrl });
 };
 
 exports.putProperty = async (req, res) => {
