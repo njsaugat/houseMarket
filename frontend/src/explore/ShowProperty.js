@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../LandingPage/Navbar';
 import house from '../house.png';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import Footer from '../LandingPage/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import Loading from '../components/Loading';
 const viewsIcon = <FontAwesomeIcon icon={faEye} />;
 
 function numberWithCommas(x) {
@@ -14,16 +15,12 @@ function getRandomNumber() {
   return Math.floor(Math.random() * 100);
 }
 
-const ShowProperty = () => {
-  const { state } = useLocation();
-  const property = state;
-  console.log(property);
+function getPropertyAttributes(property) {
   document.title =
     property.name.charAt(0).toUpperCase() + property.name.slice(1);
-  console.log(property);
   const { location, furnished, bedRoom, livingRoom, bathRoom } = property;
   const email = property.owner.email;
-  const propertyAttributes = {
+  let propertyAttributes = {
     location,
     furnished: furnished === true ? 'Yes' : 'No',
     bedRoom,
@@ -31,7 +28,47 @@ const ShowProperty = () => {
     bathRoom,
     email,
   };
+  return propertyAttributes;
+}
+const ShowProperty = () => {
+  const { state } = useLocation();
+  // const property = state;
+  console.log('state is', state);
+  const params = useParams();
+  console.log(params.id);
+  const [property, setProperty] = useState(() => (state ? state : {}));
 
+  // console.log(property);
+  const [propertyAttributes, setPropertyAttributes] = useState(() =>
+    state ? getPropertyAttributes(state) : {}
+  );
+  const [isLoading, setLoading] = useState(() => (state ? false : true));
+  // let propertyAttributes;
+  // if(state){
+  //   // const prop=state
+  //   propertyAttributes=getPropertyAttributes(property)
+
+  // }
+  // console.log(property);
+
+  useEffect(() => {
+    async function getProperties() {
+      console.log('/property/' + params.id);
+      const data = await fetch('/property/' + params.id, {
+        method: 'GET',
+      });
+      const propertiesData = await data.json();
+      console.log(propertiesData);
+      setProperty(propertiesData);
+      setLoading(false);
+      setPropertyAttributes(getPropertyAttributes(propertiesData));
+    }
+
+    if (!state) {
+      getProperties();
+      // propertyAttributes=getPropertyAttributes(property);
+    }
+  }, [state, params.id]);
   const RenderPropertyAttributes = () => {
     return (
       <div className="attributes leading-8 md:leading-10 mt-5 bg-gradient-to-r rounded-lg p-5 from-sky-200 to-cyan-50 w-10/12 md:w-11/12 lg:w-3/5 self-center md:self-start mx-5 ">
@@ -46,13 +83,16 @@ const ShowProperty = () => {
       </div>
     );
   };
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       <Navbar />
       <div className=" bg-gradient-to-t from-slate-50 to-cyan-50 flex flex-col md:flex-row w-screen md:h-screen  bg-slate-50   ">
         <div className="left m-5 w-full md:w-1/3   mb-10 md:mb-1 flex flex-col ">
           <img
-            className="w-screen md:w-full hover:scale-105 transition-transform "
+            className="w-11/12 md:w-full hover:scale-105 transition-transform  rounded-xl"
             src={
               'http://127.0.0.1:5000/' +
               property.imageUrl.substring(property.imageUrl.indexOf('photo'))
