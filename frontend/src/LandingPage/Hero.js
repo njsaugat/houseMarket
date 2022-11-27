@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Tagline from '../components/Tagline';
 import house from '../house.png';
+const imageProp = 'md:w-1/2   transition-all duration-1000';
 const Hero = () => {
+  const [up, moveUp] = useState(false);
+  useEffect(() => {
+    let interval;
+    function playAnimation() {
+      up === false ? moveUp(true) : moveUp(false);
+    }
+    interval = setInterval(playAnimation, 1000);
+    return () => clearInterval(interval);
+  }, [up]);
   return (
     <main className="w-screen p-10 md:p-20 relative md:flex md:justify-between items-center overflow-hidden   mb-32  bg-gradient-to-r from-gray-200 to-gray-50 ">
       <div className="left  my-24 mb-10  md:w-3/5">
@@ -19,7 +29,9 @@ const Hero = () => {
         </Link>
       </div>
 
-      <div className="md:w-1/2">
+      <div
+        className={`${up ? 'translate-y-7' : 'translate-y-0'} ${imageProp} `}
+      >
         <img
           className="rounded-3xl object-cover opacity-95  w-full h-full  "
           src={house}
