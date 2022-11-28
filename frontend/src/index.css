@@ -3,6 +3,7 @@
 @tailwind utilities;
 @import url('kinetic.css');
 @import url('animatedNav.css');
+@import url('contentAnimated.css');
 
 body {
   overflow-x: hidden;
